@@ -1,0 +1,28 @@
+{
+  "name": "yuan-client",
+  "version": "1.0.0",
+  "description": "A Electron desktop application. Built with Electron and React",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint --init",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenlizan/yuan-client.git"
+  },
+  "keywords": [
+    "electron",
+    "react"
+  ],
+  "author": "chenlizan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenlizan/yuan-client/issues"
+  },
+  "homepage": "https://github.com/chenlizan/yuan-client#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}
