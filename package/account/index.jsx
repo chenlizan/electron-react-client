@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {routes} from './routes/index'
+import {routes} from './routes/index';
 import {configureStore} from './store/index';
 import './stylesheets/index.css';
 

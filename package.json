@@ -4,7 +4,8 @@
   "description": "A Electron desktop application. Built with Electron and React",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint --init"
+    "electron": "electron .",
+    "packager": "electron-packager . yuan-client --platform=win32 --electronVersion=1.7.10 --ignore=\"(public|src)\" --asar --overwrite"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,14 @@
   },
   "homepage": "https://github.com/chenlizan/electron-react-client",
   "devDependencies": {
+    "electron": "^1.7.10",
+    "electron-packager": "^10.1.0",
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.4.0"
   },
   "dependencies": {
-    "antd": "^3.0.1",
-    "cross-env": "^5.1.1",
+    "antd": "^3.0.3",
+    "cross-env": "^5.1.3",
     "electron-redux": "^1.3.1"
   }
 }
