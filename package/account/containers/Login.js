@@ -4,18 +4,18 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import Login from '../../components/Account/Login';
-import {submit_login_info_action} from '../../action';
+import Login from '../components/Login';
+import {save_login_info_creator} from '../action/index';
 
 function mapStateToProps(state) {
     return {
-        electron: state.Home.electron
+        account: state.Login.account
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleSubmitLoginInfo: bindActionCreators(submit_login_info_action, dispatch),
+        handleSaveLoginInfo: bindActionCreators(save_login_info_creator, dispatch)
     };
 }
 

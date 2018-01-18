@@ -11,7 +11,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
-const webpackConfig = {};
+const webpackConfig = {entry: {}, plugins: []};
 
 const getEntries = (globPath) => {
     const files = glob.sync(globPath), entries = {};
@@ -34,7 +34,7 @@ Object.keys(entries).forEach(function (name) {
         // 生成出来的html文件名
         filename: name + '.html',
         // 每个html的模版，这里多个页面使用同一个模版
-        template: './template.html',
+        template: 'package/' + name + '/index.html',
         // 自动将引用插入html
         inject: true,
         // 每个html引用的js模块，也可以在这里加上vendor等公用模块
@@ -50,10 +50,7 @@ const clientConfig = {
         historyApiFallback: true
     },
     devtool: 'eval-source-map',
-    entry: [
-        path.resolve(__dirname, 'src/index'),
-        'babel-polyfill'
-    ],
+    entry: webpackConfig.entry,
     output: {
         filename: 'client.js',
         publicPath: '/'
@@ -106,9 +103,7 @@ const clientConfig = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin("styles.css"),
-        new HtmlWebpackPlugin({
-            template: 'public/index.html'
-        }),
+        ...webpackConfig.plugins,
         new ProgressBarPlugin()
 
     ],
