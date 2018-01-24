@@ -52,7 +52,7 @@ const clientConfig = {
     devtool: 'eval-source-map',
     entry: webpackConfig.entry,
     output: {
-        filename: 'client.js',
+        filename: '[name].js',
         publicPath: '/'
     },
     module: {
