@@ -3,14 +3,28 @@
  */
 
 import React from 'react';
+import Loadable from 'react-loadable';
 import {HashRouter, Route} from 'react-router-dom';
 
-import App from '../App';
-import Login from '../containers/Login';
+function Loading() {
+    return <div>Loading...</div>;
+}
 
+const Login = Loadable({
+    loader: () => import('../containers/Login'),
+    loading: Loading
+});
+
+const Registration = Loadable({
+    loader: () => import('../containers/Registration'),
+    loading: Loading
+});
 
 export const routes = (
     <HashRouter>
-        <Route path="/login" component={Login}/>
+        <div>
+            <Route path="/login" component={Login}/>
+            <Route path="/register" component={Registration}/>
+        </div>
     </HashRouter>
 );
