@@ -26,19 +26,11 @@ const getEntries = (globPath) => {
 const entries = getEntries('package/*/index.jsx');
 
 Object.keys(entries).forEach(function (name) {
-    // 每个页面生成一个entry，如果需要HotUpdate，在这里修改entry
     webpackConfig.entry[name] = entries[name];
-
-    // 每个页面生成一个html
     const plugin = new HtmlWebpackPlugin({
-        // 生成出来的html文件名
         filename: name + '.html',
-        // 每个html的模版，这里多个页面使用同一个模版
         template: 'package/' + name + '/index.html',
-        // 自动将引用插入html
-        inject: true,
-        // 每个html引用的js模块，也可以在这里加上vendor等公用模块
-        chunks: [name]
+        inject: true
     });
     webpackConfig.plugins.push(plugin);
 })
@@ -53,6 +45,7 @@ const clientConfig = {
     entry: webpackConfig.entry,
     output: {
         filename: '[name].js',
+        chunkFilename: 'bundle-[chunkhash:8].js',
         publicPath: '/'
     },
     module: {
@@ -104,7 +97,7 @@ const clientConfig = {
             }
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("styles.css"),
+        new ExtractTextPlugin("[name].css"),
         ...webpackConfig.plugins,
         new ProgressBarPlugin()
 
