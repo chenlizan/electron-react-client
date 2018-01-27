@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config",
     "electron": "electron .",
+    "inst": "cross-env npm_config_target=1.7.11 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true HOME=~/.electron-gyp npm install",
     "packager": "electron-packager . yuan-client --platform=win32 --electronVersion=1.7.10 --ignore=\"(public|src)\" --asar --overwrite"
   },
   "repository": {
@@ -52,9 +53,11 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "sqlite3": "^3.1.13",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+  }
 }
