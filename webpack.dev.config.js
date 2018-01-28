@@ -37,7 +37,7 @@ Object.keys(entries).forEach(function (name) {
 
 const clientConfig = {
     devServer: {
-        open: true,
+        open: false,
         port: 3000,
         historyApiFallback: true
     },
@@ -108,7 +108,7 @@ const clientConfig = {
         net: 'empty',
         tls: 'empty',
     },
-    target: 'web'
+    target: 'electron-renderer'
 };
 
 module.exports = clientConfig;

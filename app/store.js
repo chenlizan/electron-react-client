@@ -2,25 +2,21 @@
  * Created by chenlizan on 2017/9/20.
  */
 
-import {applyMiddleware, createStore, combineReducers, compose} from 'redux';
-import {forwardToMain, forwardToRenderer, triggerAlias, replayActionMain, replayActionRenderer} from 'electron-redux';
-import thunk from 'redux-thunk';
+import {applyMiddleware, createStore, combineReducers} from 'redux';
+import {forwardToRenderer, triggerAlias, replayActionMain} from 'electron-redux';
 
-export const initState = {
-};
+const wrapRouter = require('./utils/wrapRouter');
 
-const reducers = {
-};
+export const initState = {wrapRouter: wrapRouter.initState};
+
+const reducers = {wrapRouter: wrapRouter.reducer};
 
 export const configureStore = () => {
-    const mainMiddleware = [triggerAlias, forwardToRenderer, thunk];
-    const rendererMiddleware = [forwardToMain, thunk];
-    const main = (typeof window !== 'object');
     const store = createStore(
         combineReducers(reducers),
         initState,
-        applyMiddleware(...main ? [...mainMiddleware] : [...rendererMiddleware])
+        applyMiddleware(triggerAlias, forwardToRenderer)
     );
-    main ? replayActionMain(store) : replayActionRenderer(store);
+    replayActionMain(store);
     return store;
 };

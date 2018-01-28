@@ -5,6 +5,7 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 import {HashRouter, Route} from 'react-router-dom';
+// import Login from '../containers/Login';
 
 function Loading() {
     return <div>Loading...</div>;
@@ -12,7 +13,9 @@ function Loading() {
 
 const Login = Loadable({
     loader: () => import('../containers/Login'),
-    loading: Loading
+    loading: () => {
+        return null;
+    }
 });
 
 const Registration = Loadable({

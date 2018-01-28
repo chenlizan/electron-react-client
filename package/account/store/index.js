@@ -3,6 +3,7 @@
  */
 
 import {applyMiddleware, createStore, combineReducers, compose} from 'redux';
+import {forwardToMain, replayActionRenderer, getInitialStateRenderer} from 'electron-redux';
 import Login from '../reducers/Login';
 
 const initState = {
@@ -13,10 +14,14 @@ const reducers = {
     Login: Login.reducer
 };
 
-export const configureStore = (preloadState) => {
+export const configureStore = () => {
     const store = createStore(
         combineReducers(reducers),
-        preloadState || initState,
+        initState,
+        applyMiddleware(
+            forwardToMain
+        )
     );
+    replayActionRenderer(store);
     return store
 };

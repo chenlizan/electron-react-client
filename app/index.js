@@ -2,51 +2,43 @@
  * Created by chenlizan on 2017/9/20.
  */
 
-
 import {app, BrowserWindow} from 'electron';
 import path from 'path';
-import serve from 'serve';
 import {configureStore} from './store';
-// import {router} from './routes';
-import {ipcMsgPump} from "./ipcMsg";
+// import {ipcMsgPump} from "./ipcMsg";
 
 app.commandLine.appendSwitch('disable-http-cache');
 
 const store = configureStore();
-ipcMsgPump();
+// ipcMsgPump();
 // router(store);
-
-const server = serve(path.join(__dirname, 'dist'), {
-    port: 8080,
-    single: true
-});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let loginWindow;
+let accountWindow;
 
 function createLoginWindow() {
     // Create the browser window.
 
-    loginWindow = new BrowserWindow({
-        width: 280, height: 450, minHeight: 450, maxWidth: 280, minWidth: 280, title: 'login',
-        autoHideMenuBar: true, frame: false, resizable: true, show: false
+    accountWindow = new BrowserWindow({
+        width: 280, height: 450, minHeight: 450,  minWidth: 280, title: 'account',
+        autoHideMenuBar: false, frame: true, resizable: true, show: false
     });
 
-    loginWindow.once('ready-to-show', () => loginWindow.show());
+    accountWindow.once('ready-to-show', () => accountWindow.show());
 
     // and load the index.html of the app.
-    loginWindow.loadURL('http://localhost:8080/account/login');
+    accountWindow.loadURL('http://localhost:3000/account.html#/login');
 
     // Open the DevTools.
-    // loginWindow.webContents.openDevTools();
+    // accountWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
-    loginWindow.on('closed', function () {
+    accountWindow.on('closed', function () {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
         // when you should delete the corresponding element.
-        loginWindow = null;
+        accountWindow = null;
     });
 }
 
@@ -67,7 +59,7 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
     // On OS X it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (loginWindow === null) {
+    if (accountWindow === null) {
         createLoginWindow();
     }
 });

@@ -12,8 +12,7 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.handleSaveLoginInfo(values);
-                console.log('Received values of form: ', values);
+                this.props.handleSubmitLoginInfo(values);
             }
         });
     }
