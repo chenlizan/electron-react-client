@@ -5,11 +5,11 @@
 import {applyMiddleware, createStore, combineReducers} from 'redux';
 import {forwardToRenderer, triggerAlias, replayActionMain} from 'electron-redux';
 
-const wrapRouter = require('./utils/wrapRouter');
+const reducer = require('./reducer');
 
-export const initState = {wrapRouter: wrapRouter.initState};
+export const initState = {electron: reducer.initState};
 
-const reducers = {wrapRouter: wrapRouter.reducer};
+const reducers = {electron: reducer.reducer};
 
 export const configureStore = () => {
     const store = createStore(

@@ -7,12 +7,8 @@ import {handleActions} from 'redux-actions';
 export const initState = {};
 
 export const reducer = handleActions({
-        SUBMIT_LOGIN_INFO: (state, action) => {
-            console.log(action);
-            return;
-        },
-        SUBMIT_REGISTER_INFO: (state, action) => {
-            console.log(action);
+        ELECTRON_REQUEST: (state, action) => {
+            console.log(`action: ${JSON.stringify(action)}`);
             return;
         }
     }, initState
