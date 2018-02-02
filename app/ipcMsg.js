@@ -1,6 +1,4 @@
-/**
- * Created by chenlizan on 2017/9/25.
- */
+
 
 import { app, BrowserWindow, ipcMain } from 'electron';
 

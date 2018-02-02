@@ -15,6 +15,9 @@ const initState = {
 const reducer = handleActions({
     SUBMIT_LOGIN_INFO: (state, action) => ({
         ...state, loginInfo: action.payload
+    }),
+    ELECTRON_RESPONSE: (state, action) => ({
+        ...state, electron: action.payload
     })
 }, initState);
 

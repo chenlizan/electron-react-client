@@ -1,15 +1,19 @@
-/**
- * Created by chenlizan on 2017/9/20.
- */
-
 import {app, BrowserWindow} from 'electron';
 import path from 'path';
+import {bindActionCreators} from 'redux';
 import {configureStore} from './store';
 // import {ipcMsgPump} from "./ipcMsg";
+import {electron_response_data_creator} from './action/index';
 
 app.commandLine.appendSwitch('disable-http-cache');
 
 const store = configureStore();
+const testDispatchAction = bindActionCreators(electron_response_data_creator, store.dispatch);
+
+setInterval(function () {
+    testDispatchAction({name: 'chenlizan'})
+}, 2000);
+
 // ipcMsgPump();
 // router(store);
 
@@ -21,7 +25,7 @@ function createLoginWindow() {
     // Create the browser window.
 
     accountWindow = new BrowserWindow({
-        width: 280, height: 450, minHeight: 450,  minWidth: 280, title: 'account',
+        width: 280, height: 450, minHeight: 450, minWidth: 280, title: 'account',
         autoHideMenuBar: false, frame: true, resizable: true, show: false
     });
 

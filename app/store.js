@@ -1,6 +1,4 @@
-/**
- * Created by chenlizan on 2017/9/20.
- */
+
 
 import {applyMiddleware, createStore, combineReducers} from 'redux';
 import {forwardToRenderer, triggerAlias, replayActionMain} from 'electron-redux';

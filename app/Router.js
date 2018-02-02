@@ -1,6 +1,4 @@
-/**
- * Created by chenlizan on 2017/9/28.
- */
+
 
 import {is} from 'immutable';
 

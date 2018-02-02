@@ -1,6 +1,4 @@
-/**
- * Created by chenlizan on 2018/1/14.
- */
+
 
 import {handleActions} from 'redux-actions';
 

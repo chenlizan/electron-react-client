@@ -4,7 +4,7 @@
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import Registration from '../components/Registration';
+import Registration from '../views/Registration';
 
 function mapStateToProps(state) {
     return {
