@@ -5,4 +5,5 @@ A Electron desktop application. Built with Electron and React
 
 # 设计原则
 调用electron同步方法用const {remote} = window.require('electron');
+
 调用electron异步方法用bindActionCreators
