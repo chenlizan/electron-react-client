@@ -1,18 +1,8 @@
 import {app, BrowserWindow} from 'electron';
 import path from 'path';
-import {bindActionCreators} from 'redux';
-import {configureStore} from './store';
 // import {ipcMsgPump} from "./ipcMsg";
-import {electron_response_data_creator} from './action/index';
 
 app.commandLine.appendSwitch('disable-http-cache');
-
-const store = configureStore();
-const testDispatchAction = bindActionCreators(electron_response_data_creator, store.dispatch);
-
-setInterval(function () {
-    testDispatchAction({name: 'chenlizan'})
-}, 2000);
 
 // ipcMsgPump();
 // router(store);

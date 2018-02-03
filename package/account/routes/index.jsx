@@ -1,10 +1,7 @@
-/**
- * Created by chenlizan on 2017/6/18.
- */
-
 import React from 'react';
 import Loadable from 'react-loadable';
 import {HashRouter, Route} from 'react-router-dom';
+
 // import Login from '../containers/Login';
 
 function Loading() {

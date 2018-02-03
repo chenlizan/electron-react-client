@@ -1,7 +1,3 @@
-/**
- * Created by chenlizan on 2017/6/18.
- */
-
 import {applyMiddleware, createStore, combineReducers, compose} from 'redux';
 import {forwardToMain, replayActionRenderer, getInitialStateRenderer} from 'electron-redux';
 import Login from '../reducers/Login';

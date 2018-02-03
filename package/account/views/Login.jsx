@@ -1,9 +1,7 @@
-/**
- * Created by chenlizan on 2017/6/18.
- */
-
 import React from 'react';
 import {Form, Icon, Input, Button, Checkbox} from 'antd';
+
+import {login} from "../services";
 
 const FormItem = Form.Item;
 
@@ -12,7 +10,9 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.handleElectronRequest(values);
+                this.props.handleSubmitLoginInfo(values);
+                login(values);
+                console.log(`loginInfo: ${JSON.stringify(values)}`);
             }
         });
     }

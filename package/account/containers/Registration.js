@@ -1,19 +1,13 @@
-/**
- * Created by chenlizan on 2018/1/25.
- */
-
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Registration from '../views/Registration';
 
 function mapStateToProps(state) {
-    return {
-    };
+    return {};
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-    };
+    return {};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);

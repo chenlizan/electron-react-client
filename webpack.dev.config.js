@@ -1,7 +1,3 @@
-/**
- * Created by chenlizan on 2017/8/11.
- */
-
 'use strict';
 
 const glob = require('glob');

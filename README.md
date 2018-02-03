@@ -4,10 +4,5 @@ A Electron desktop application. Built with Electron and React
 目标做一个类似QQ的即时通讯软件
 
 # 设计原则
-调用electron同步方法用const {remote} = window.require('electron');
-
-通知electron异步方法用bindActionCreators
-
-electron通知react状态用bindActionCreators
-
-
+react调用electron方法（异步或同步）用const {remote} = window.require('electron');
+electron通过redux（dispatch action）回应react所调用的异步方法

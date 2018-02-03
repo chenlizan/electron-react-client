@@ -1,5 +1,3 @@
-
-
 import {applyMiddleware, createStore, combineReducers} from 'redux';
 import {forwardToRenderer, triggerAlias, replayActionMain} from 'electron-redux';
 

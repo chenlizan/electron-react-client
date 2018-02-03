@@ -1,13 +1,11 @@
-
-
 import {handleActions} from 'redux-actions';
 
 export const initState = {};
 
 export const reducer = handleActions({
-        ELECTRON_REQUEST: (state, action) => {
+        SUBMIT_LOGIN_INFO: (state, action) => {
             console.log(`action: ${JSON.stringify(action)}`);
-            return;
+            return state;
         }
     }, initState
 );
