@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config",
     "electron": "cross-env NODE_ENV=development electron .",
-    "packager": "electron-packager . yuan-client --platform=win32 --electronVersion=1.7.11 --ignore=\"(public|src)\" --asar --overwrite",
-    "inst": "npm install cross-env && cross-env npm_config_target=1.7.11 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install"
+    "packager": "electron-packager . yuan-client --platform=win32 --electronVersion=1.7.12 --ignore=\"(public|src)\" --asar --overwrite",
+    "inst": "npm install cross-env && cross-env npm_config_target=1.7.12 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/chenlizan/electron-react-client",
   "devDependencies": {
-    "antd": "^3.1.5",
+    "antd": "^3.1.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -39,7 +39,7 @@
     "bluebird": "^3.5.1",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.9",
-    "electron": "^1.7.11",
+    "electron": "^1.7.12",
     "electron-packager": "^10.1.0",
     "electron-redux": "^1.3.1",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -47,6 +47,7 @@
     "glob": "^7.1.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^2.30.1",
+    "lodash": "^4.17.5",
     "progress-bar-webpack-plugin": "^1.10.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -58,7 +59,7 @@
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "sqlite3": "^3.1.13",
-    "style-loader": "^0.19.1",
+    "style-loader": "^0.20.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.0"
   },

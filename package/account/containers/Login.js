@@ -5,7 +5,6 @@ import {electron_request_data_creator, submit_login_info_creator} from '../actio
 
 function mapStateToProps(state) {
     return {
-        loginInfo: state.Login.loginInfo,
         electron: state.Login.electron
     };
 }

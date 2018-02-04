@@ -15,10 +15,11 @@ class LoginForm extends React.Component {
                 console.log(`loginInfo: ${JSON.stringify(values)}`);
             }
         });
-    }
+    };
 
     render() {
         const {getFieldDecorator} = this.props.form;
+        const {electron} = this.props;
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
@@ -48,6 +49,7 @@ class LoginForm extends React.Component {
                         Log in
                     </Button>
                     Or <a href="">register now!</a>
+                    <div>{electron}</div>
                 </FormItem>
             </Form>
         );
