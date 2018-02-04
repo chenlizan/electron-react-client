@@ -3,5 +3,4 @@ import {bindActionCreators} from "redux";
 import {configureStore} from "../store";
 
 const store = configureStore();
-
-export const electron_response_dispatch =bindActionCreators(createAction('ELECTRON_RESPONSE'), store.dispatch);
+export const electron_dispatch = bindActionCreators(createAction('ELECTRON_DISPATCH'), store.dispatch);

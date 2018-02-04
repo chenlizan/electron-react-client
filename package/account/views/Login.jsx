@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
                         Log in
                     </Button>
                     Or <a href="">register now!</a>
-                    <div>{electron}</div>
+                    <div>{(electron === undefined) ? '' : electron.result}</div>
                 </FormItem>
             </Form>
         );

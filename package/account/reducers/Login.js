@@ -7,7 +7,7 @@ const initState = {
 };
 
 const reducer = handleActions({
-    ELECTRON_RESPONSE: (state, action) => ({
+    ELECTRON_DISPATCH: (state, action) => ({
         ...state, electron: action.payload
     })
 }, initState);
