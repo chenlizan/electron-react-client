@@ -15,14 +15,14 @@ function createLoginWindow() {
     // Create the browser window.
 
     accountWindow = new BrowserWindow({
-        width: 280, height: 450, minHeight: 450, minWidth: 280, title: 'account',
+        width: 300, height: 440, minHeight: 440, minWidth: 300, title: 'account',
         autoHideMenuBar: false, frame: true, resizable: true, show: false
     });
 
     accountWindow.once('ready-to-show', () => accountWindow.show());
 
     // and load the index.html of the app.
-    accountWindow.loadURL('http://localhost:3000/account.html#/login');
+    accountWindow.loadURL('http://localhost:3000/account.html#/ding');
 
     // Open the DevTools.
     // accountWindow.webContents.openDevTools();

@@ -1,8 +1,9 @@
 import React from 'react';
 import Loadable from 'react-loadable';
-import {HashRouter, Route} from 'react-router-dom';
+import {HashRouter, Route, Switch} from 'react-router-dom';
 
 // import Login from '../containers/Login';
+import Ding from '../views/Ding'
 
 function Loading() {
     return <div>Loading...</div>;
@@ -22,9 +23,10 @@ const Registration = Loadable({
 
 export const routes = (
     <HashRouter>
-        <div>
+        <Switch>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Registration}/>
-        </div>
+            <Route path="/ding" component={Ding}/>
+        </Switch>
     </HashRouter>
 );
