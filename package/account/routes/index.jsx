@@ -16,16 +16,18 @@ const Login = Loadable({
     }
 });
 
-const Registration = Loadable({
-    loader: () => import('../containers/Registration'),
-    loading: Loading
+const Registry = Loadable({
+    loader: () => import('../containers/Registry'),
+    loading: () => {
+        return null;
+    }
 });
 
 export const routes = (
     <HashRouter>
         <Switch>
             <Route path="/login" component={Login}/>
-            <Route path="/register" component={Registration}/>
+            <Route path="/registry" component={Registry}/>
             <Route path="/ding" component={Ding}/>
         </Switch>
     </HashRouter>
