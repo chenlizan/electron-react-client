@@ -60,6 +60,10 @@ class LoginForm extends React.Component {
     toRegistry = () => {
         console.log('to registry');
         this.props.history.push('/registry');
+    };
+    forgetPsw = () => {
+        console.log('forget pwd');
+        this.props.history.push('resetPassword');
     }
 
     render() {

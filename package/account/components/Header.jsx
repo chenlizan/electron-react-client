@@ -21,6 +21,7 @@ export default class Header extends React.Component {
                 <div className='operate-icon'>
                     <Icon type='minus' onClick={this.minimize} className='icon' />
                     <Icon type='close' onClick={this.close} className='icon' />
+                    {/* <i className='iconfont icon-suoxiao icon' /> */}
                 </div>
                 {
                     isShowAvatar ? <Avatar size='large' className='user-avatar'>user</Avatar> : null

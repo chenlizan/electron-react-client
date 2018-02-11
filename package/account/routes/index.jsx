@@ -22,6 +22,12 @@ const Registry = Loadable({
         return null;
     }
 });
+const ResetPassword = Loadable({
+    loader: () => import('../containers/ResetPassword'),
+    loading: () => {
+        return null
+    }
+})
 
 export const routes = (
     <HashRouter>
@@ -29,6 +35,7 @@ export const routes = (
             <Route path="/login" component={Login}/>
             <Route path="/registry" component={Registry}/>
             <Route path="/ding" component={Ding}/>
+            <Route path="/resetPassword" component={ResetPassword}/>
         </Switch>
     </HashRouter>
 );

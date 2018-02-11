@@ -1,27 +1,20 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/Header.jsx';
 import { Input, Icon, Button } from 'antd';
-import '../stylesheets/Registry.css';
+import '../stylesheets/ResetPassword.css';
 
-export default class Registry extends React.Component {
-    constructor (props) {
+export default class ResetPassword extends React.Component {
+    constructor(props) {
         super(props);
-        this.start = 0;
         this.state = {
+            verifyBtnDisabled: false,
+            isShowPhoneError: false,
+            btnValue: '获取验证码',
             username: '',
             password: '',
             phone: '',
-            verifyCode: '',
-            verifyBtnDisabled: false,
-            btnValue: '获取验证码',
-            isShowPhoneError: true
-        } 
-    };
-    minimize = () => {
-        console.log('minimize window');
-    };
-    close = () => {
-        console.log('close window');
+            verifyCode: ''
+        }
     };
     gotoLogin = () => {
         this.props.history.push('/Login');
@@ -52,6 +45,17 @@ export default class Registry extends React.Component {
                 
         }
     };
+    resetPassword = () => {
+        const { username, password, phone, verifyCode } = this.state;
+        let resetInfo = {
+            username: username,
+            password: password,
+            phone: phone,
+            verifyCode: verifyCode
+        };
+        console.log('resetInfo: ', resetInfo);
+        this.props.history.push('Login');
+    };
     getVertifyCode = () => {
         if (this.state.verifyBtnDisabled) {
             return;
@@ -79,28 +83,18 @@ export default class Registry extends React.Component {
             });
         },1000);
     };
-    handleRegistry = () => {
-        let {username, password, phone, verifyCode } = this.state;
-        let registryParam = {
-            username: username,
-            password: password,
-            phone: phone,
-            verifyCode: verifyCode
-        };
-        console.log('registryParam: ', registryParam);
-    }
     render () {
-        const { btnValue, verifyBtnDisabled, isShowPhoneError } = this.state;
+        const { verifyBtnDisabled, isShowPhoneError, btnValue } = this.state;
         return (
             <div>
-                <Header minimize={this.minimize} close={this.close}/>
+                <Header />
                 <div className='input-wrapper'>
                     <Icon type="user" className='input-icon' />
                     <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput} />
                 </div>
                 <div className='input-wrapper'>
                     <Icon type="lock" className='input-icon' />
-                    <Input  className='input-content' id='password' placeholder="请输入密码" onBlur={this.getInput} />
+                    <Input className='input-content' id='password' placeholder="请输入新密码" onBlur={this.getInput} />
                 </div>
                 <div className='input-wrapper'>
                     <Icon type="mobile" className='input-icon' />
@@ -113,8 +107,8 @@ export default class Registry extends React.Component {
                     <button className={verifyBtnDisabled ? 'input-btn dis-input-btn' : 'input-btn'} onClick={this.getVertifyCode}>{ btnValue }</button>
                 </div>
                 <div className='footer'>
-                    <Button type="primary" onClick={this.handleRegistry} className='input-btn'>注册</Button>
-                    <span className='footer-span'>已有帐号 <span style={{cursor: 'pointer'}} onClick={this.gotoLogin}>去登录>></span></span>
+                    <Button type="primary" onClick={this.resetPassword} className='input-btn'>确定</Button>
+                    <span className='footer-span'><span style={{cursor: 'pointer'}} onClick={this.gotoLogin}>去登录>></span></span>
                 </div>
             </div>
         )
