@@ -89,20 +89,20 @@ export default class ResetPassword extends React.Component {
             <div>
                 <Header />
                 <div className='input-wrapper'>
-                    <Icon type="user" className='input-icon' />
+                    <i className='iconfont icon-custom-user input-icon' />
                     <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput} />
                 </div>
                 <div className='input-wrapper'>
-                    <Icon type="lock" className='input-icon' />
+                    <i className='iconfont icon-password input-icon' />
                     <Input className='input-content' id='password' placeholder="请输入新密码" onBlur={this.getInput} />
                 </div>
                 <div className='input-wrapper'>
-                    <Icon type="mobile" className='input-icon' />
+                    <i className='iconfont icon-phone input-icon' />
                     <Input className='input-content' id='phone' placeholder="请输入手机号" onBlur={this.getInput} />
                     <span className={isShowPhoneError ? 'error' : 'no-error'}>手机号输入有误</span>
                 </div>
                 <div className='input-wrapper'>
-                    <Icon type="safety" className='input-icon' />
+                    <i className='iconfont icon-Safety input-icon' />
                     <Input className='input-content' id='verifyCode' placeholder="请输入验证码" onBlur={this.getInput} />
                     <button className={verifyBtnDisabled ? 'input-btn dis-input-btn' : 'input-btn'} onClick={this.getVertifyCode}>{ btnValue }</button>
                 </div>

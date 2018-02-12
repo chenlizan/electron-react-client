@@ -58,6 +58,12 @@ const clientConfig = {
                 ]
             },
             {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                use: [{
+                    loader: 'file-loader'
+                }]
+            },
+            {
                 test: /\.(js|jsx)$/,
                 use: {
                     loader: 'babel-loader',

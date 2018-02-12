@@ -5,6 +5,7 @@ import {routes} from './routes/index'
 import {configureStore} from './store';
 import './stylesheets/index.css';
 import '../../node_modules/antd/dist/antd.min.css';
+import '../assets/style/iconfont.css'
 
 const store = configureStore();
 

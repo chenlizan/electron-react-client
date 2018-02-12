@@ -74,11 +74,11 @@ class LoginForm extends React.Component {
             <div className='login-wrapper' id='login'>
                 <Header isShowAvatar={true} minimize={this.minimize} close={this.close}/>
                 <div className='input-wrapper'>
-                    <Icon type="user" className='input-icon' />
+                    <i className='iconfont icon-custom-user input-icon' />
                     <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput} />
                 </div>
                 <div className='input-wrapper'>
-                    <Icon type="lock" className='input-icon' />
+                    <i className='iconfont icon-password input-icon' />
                     <Input className='input-content' id='password' placeholder="请输入密码" onBlur={this.getInput} />
                 </div>
                 {
