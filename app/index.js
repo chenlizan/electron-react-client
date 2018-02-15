@@ -22,7 +22,7 @@ function createLoginWindow() {
     accountWindow.once('ready-to-show', () => accountWindow.show());
 
     // and load the index.html of the app.
-    accountWindow.loadURL('http://localhost:3000/main.html#/mainFrame');
+    accountWindow.loadURL('http://localhost:3000/account.html#/Login');
 
     // Open the DevTools.
     // accountWindow.webContents.openDevTools();
