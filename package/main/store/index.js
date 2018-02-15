@@ -3,11 +3,11 @@ import {forwardToMain, replayActionRenderer, getInitialStateRenderer} from 'elec
 import Main from '../reducers/Main';
 
 const initState = {
-    // Login: Login.initState
+    Main: Main.initState
 };
 
 const reducers = {
-    // Login: Login.reducer
+    Main: Main.reducer
 };
 
 export const configureStore = () => {

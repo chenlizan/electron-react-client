@@ -26,7 +26,7 @@ Object.keys(entries).forEach(function (name) {
     const plugin = new HtmlWebpackPlugin({
         filename: name + '.html',
         template: 'package/' + name + '/index.html',
-        inject: true
+        chunks: [name]
     });
     webpackConfig.plugins.push(plugin);
 })
