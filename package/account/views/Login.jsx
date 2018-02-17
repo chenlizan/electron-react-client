@@ -1,9 +1,11 @@
 import React from 'react';
 import Header from '../components/Header';
 import {Form, Icon, Input, Button, Checkbox, Avatar } from 'antd';
-
 import {login} from "../services";
 import '../stylesheets/Login.css';
+const electron = window.require('electron');
+const { ipcRenderer } = electron;
+
 
 
 const FormItem = Form.Item;
@@ -27,6 +29,7 @@ class LoginForm extends React.Component {
             isShowErrorTip: !prevState.isShowErrorTip
         }));
         console.log('loginValue: ', loginValue);
+        ipcRenderer.send('open', ['main', '/main.html#/MainFrame']);
         // e.preventDefault();
         // this.props.form.validateFields((err, values) => {
         //     if (!err) {

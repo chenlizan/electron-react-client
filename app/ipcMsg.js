@@ -27,7 +27,7 @@ export const ipcMsgPump = () => {
                 title: args[0]
             });
             win.once('ready-to-show', () => win.show());
-            win.loadURL('http://localhost:8080' + args[1]);
+            win.loadURL('http://localhost:3000' + args[1]);
             win.webContents.openDevTools();
         }
     });

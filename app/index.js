@@ -1,10 +1,10 @@
 import {app, BrowserWindow} from 'electron';
 import path from 'path';
-// import {ipcMsgPump} from "./ipcMsg";
+import {ipcMsgPump} from "./ipcMsg";
 
 app.commandLine.appendSwitch('disable-http-cache');
 
-// ipcMsgPump();
+ipcMsgPump();
 // router(store);
 
 // Keep a global reference of the window object, if you don't, the window will
