@@ -3,6 +3,7 @@
 const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
@@ -173,6 +174,11 @@ const serverConfig = {
                 warnings: false
             }
         }),
+        new CopyWebpackPlugin([{
+            from: "package.json",
+            to: "../",
+            force: true
+        }]),
         new ProgressBarPlugin()
     ],
     node: {
