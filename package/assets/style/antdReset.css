@@ -1,0 +1,80 @@
+/* 聊天部分antd样式重置 */
+#mainFrame .ant-tabs-vertical.ant-tabs-left > .ant-tabs-content {
+    padding-left: 0;
+    height: 100%;
+}
+#mainFrame .ant-tabs-vertical.ant-tabs-left > .ant-tabs-content>div{
+    height: 100%;
+}
+#mainFrame .ant-tabs-vertical > .ant-tabs-bar{
+    background-color: #000;
+    color: #fff;
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab-active{
+    color: #fff;
+    background-color: rgba(255,255,255,0.3);
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab-active i {
+    color: #108ee9;
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab-active span{
+    color: #108ee9;
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab:hover{
+    color: #fff;
+    background-color: rgba(255,255,255,0.3);
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab i:hover{
+    color: #108ee9;
+}
+#mainFrame .ant-tabs-nav .ant-tabs-tab i:hover{
+    color: #108ee9;
+}
+#mainFrame .ant-tabs-vertical > .ant-tabs-bar .ant-tabs-tab {
+    margin-bottom: 0px;
+}
+ #mainFrame .ant-layout-header{
+     background-color: #fff;
+     color: #000;
+     height: 60px;
+     padding: 0 20px;
+ }
+ #mainFrame .ant-layout-footer{
+     height: 172px;
+     padding: 0px;
+     color: #000;
+     width: 100%;
+     text-align: right;
+     background-color: #fff;
+}
+/* #mainFrame textarea.ant-input {
+    height: 85px;
+    border: none;
+    resize: none;
+    overflow: hidden;
+} */
+/* #mainFrame .ant-input:hover{
+    border-color: #fff;
+    box-shadow: 0 0 0 2px transparent;
+} */
+#mainFrame .ant-layout-content{
+    flex: 1;
+}
+#mainFrame .ant-tabs-vertical.ant-tabs-left > .ant-tabs-bar .ant-tabs-tab{
+    text-align: center;
+}
+#mainFrameContact .ant-avatar-lg{
+    vertical-align: middle;
+}
+#mainFrame .ant-input-affix-wrapper .ant-input {
+    border-radius: 0px;
+}
+#mainFrame-sendMessage .ant-input {
+    border: none;
+    resize: none;
+    border-radius: 0;
+    font-size: 14px;
+}
+#mainFrame-sendMessage .ant-input:focus {
+    box-shadow: none;
+}

@@ -12,8 +12,8 @@ export const ipcMsgPump = () => {
 
     ipcMain.on('open', (event, args) => {
         if (_.findIndex(windowHandleArr, {name: args[0]}) === -1) {
-            const width = (args[0] === 'home') ? 320 : 900;
-            const height = (args[0] === 'home') ? 690 : 600;
+            const width = (args[0] === 'home') ? 320 : 979;
+            const height = (args[0] === 'home') ? 690 : 719;
             const win = new BrowserWindow({
                 minWidth: width,
                 //maxWidth: width,

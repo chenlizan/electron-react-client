@@ -1,0 +1,19 @@
+.name{
+    font-size: 16px;
+    font-weight: 500;
+}
+.nick{
+    font-size: 14px;
+}
+.header{
+    position: relative;
+}
+.icon {
+    position:absolute;
+    top: -10px;
+    right: 10px; 
+}
+.Icon{
+    font-size: 18px;
+    padding-left: 10px;
+}

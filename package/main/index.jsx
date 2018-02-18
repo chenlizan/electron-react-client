@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {routes} from './routes/index'
 import {configureStore} from './store';
-import './stylesheets/index.css';
+// import './stylesheets/index.css';
 import '../../node_modules/antd/dist/antd.min.css';
-import '../assets/style/iconfont.css'
+import '../assets/style/iconfont.css';
+import '../assets/style/antdReset.css';
 
 const store = configureStore();
 
