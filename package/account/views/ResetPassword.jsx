@@ -54,7 +54,7 @@ export default class ResetPassword extends React.Component {
             verifyCode: verifyCode
         };
         console.log('resetInfo: ', resetInfo);
-        this.props.history.push('Login');
+        this.props.history.push('/Login');
     };
     getVertifyCode = () => {
         if (this.state.verifyBtnDisabled) {

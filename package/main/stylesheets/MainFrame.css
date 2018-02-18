@@ -1,0 +1,15 @@
+.chatWrapper{
+    height: 100%;
+    width: 100%;
+}
+/* 图标处理 */
+.iconContainer{
+    
+}
+.iconContainer i {
+    display: block;
+    font-size: 22px;
+}
+.iconContainer span{
+    font-size: 12px;
+}

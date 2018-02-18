@@ -1,0 +1,20 @@
+.sidebarList {
+    /* height: 100%;
+    float: left;
+    flex: 0.5 */
+    width: 280px;
+    line-height: 60px;
+}
+/* .messageName{
+    position:absolute;
+    width:100px;
+    height:27px;
+    background-color:#7EC2F3;
+    left:93px;
+    top:80px;
+    text-align: center;
+    border-radius:10px;
+    border:none;
+    font-size:16px;
+    font-weight:900;
+} */

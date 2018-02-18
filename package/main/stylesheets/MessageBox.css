@@ -1,0 +1,121 @@
+.messageBox {
+    height: 100%;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.messageBox .rightBox{
+    float:right;
+    margin-top:10px;
+    width: 100%;
+    min-height: 60px;
+}
+.rightBox .rightContent{
+    clear: both;
+    /* overflow: hidden; */
+}
+.messageBox .rightPic{
+    float:right;
+    margin:0 10px 0 0;
+}
+.messageBox .rightTitle{
+    height: 20px;
+}
+.rightBox .title{
+    float: right;
+    color:black;
+    line-height:20px;
+    font-size:13px;
+    font-family: inherit;
+    margin-right: 20px;
+}
+.messageBox .rightMsg{
+    max-width: 70%;
+    float: right;
+    background-color: #fff;
+    box-shadow: 0 0 3px #ccc;
+    margin: 0 10px 0 0;
+    font-family: inherit;
+    display: block;
+    padding: 6px 6px;
+    font-size: 14px;
+    position:relative;
+}
+.messageBox .leftBox{
+    float:left;
+    margin-top:10px;
+    width: 100%;
+    min-height: 60px;
+    margin-bottom: 5px;
+}
+.leftBox .leftContent{
+    clear: both;
+    /* overflow: hidden; */
+}
+.messageBox .leftPic{
+    float:left;
+    margin:0 10px 0 10px;
+}
+.messageBox .leftTitle{
+    height: 20px;
+}
+.messageBox .rightTitle{
+    height: 20px;
+}
+.leftBox .title{
+    float: left;
+    color:black;
+    line-height:20px;
+    font-size:13px;
+    font-family: inherit;
+    margin-right: 20px;
+}
+.messageBox .leftMsg{
+    max-width: 70%;
+    float: left;
+    
+    
+    font-family: inherit;
+    display: block;
+    
+    font-size: 14px;
+    
+    
+}
+.leftMsgContent{
+    box-shadow: 0 0 3px #ccc;
+    margin: 0 10px 0 0;
+    padding: 6px;
+    background-color: #fff;
+    position:relative;
+}
+.messageBox .leftMsg:after{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 5px;
+    border: solid 8px;
+    border-color: transparent transparent transparent #f4f4f4;
+    font-size: 0;
+    left: -18px;
+    transform: rotate(180deg);
+    top: 8px;
+}
+.messageBox .rightMsg:after{
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 5px;
+    border: solid 8px;
+    border-color: transparent transparent transparent #f4f4f4;
+    font-size: 0;
+    right:-17px;
+    transform: rotate(0deg);
+    top: 8px;
+    display:inline;
+}
+.rightWrapper{
+    height: 60px;
+}

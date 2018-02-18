@@ -1,0 +1,81 @@
+.messageList{
+    height: 100%;
+    overflow-y: hidden;
+    border-right: 1px solid #ccc;
+}
+.messageList .tipBox{
+    height: 60px;
+    padding-top: 10px;
+}
+.messageList .tipPic{
+    width: 40px;
+    float: left;
+    margin-left: 10px;
+}
+.messageList .tipMsg{
+    float: left;
+    width: 100px;
+    margin-left: 10px;
+}
+.messageList .tipTime{
+    float: left;
+    width: 40px;
+    margin-left: 10px;
+}
+/* 一条消息项 */
+.itemWrapper{
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+.leftWrapper{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rightWrapper{
+    flex: 1;
+}
+.name{
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    font-size: 15px !important;
+}
+.time{
+    position: absolute;
+    right: 10px;
+}
+.detail{
+    height: 30px;
+    line-height: 15px;
+    font-size: 13px;
+}
+/* 搜索 */
+.searchContainer {
+    height: 60px;
+    line-height: 60px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.IconStyle{
+    font-size: 22px;
+    padding-left: 10px;
+}
+.addIcon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 14px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-left: 10px;
+}

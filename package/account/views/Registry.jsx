@@ -88,6 +88,7 @@ export default class Registry extends React.Component {
             verifyCode: verifyCode
         };
         console.log('registryParam: ', registryParam);
+        this.props.history.push('/Login');
     }
     render () {
         const { btnValue, verifyBtnDisabled, isShowPhoneError } = this.state;
