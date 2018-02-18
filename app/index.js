@@ -1,11 +1,12 @@
 import {app, BrowserWindow} from 'electron';
-import path from 'path';
-// import {ipcMsgPump} from "./ipcMsg";
+import {ipcMsgPump} from './ipcMsg';
+import controllers from './controllers';
 
 app.commandLine.appendSwitch('disable-http-cache');
 
-// ipcMsgPump();
-// router(store);
+controllers(app);
+
+ipcMsgPump();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -16,13 +17,16 @@ function createLoginWindow() {
 
     accountWindow = new BrowserWindow({
         width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
-        autoHideMenuBar: false, frame: true, resizable: true, show: false
+        autoHideMenuBar: false, frame: true, resizable: true, show: true
     });
 
     accountWindow.once('ready-to-show', () => accountWindow.show());
 
-    // and load the index.html of the app.
-    accountWindow.loadURL('http://localhost:3000/account.html#/Login');
+    // and load the account.html of the app.
+    if (process.env.NODE_ENV == 'production')
+        accountWindow.loadURL(`file://${__dirname}/../account.html#/login`);
+    else
+        accountWindow.loadURL('http://localhost:3000/account.html#/login');
 
     // Open the DevTools.
     // accountWindow.webContents.openDevTools();

@@ -6,7 +6,6 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 
 const webpackConfig = {entry: {}, plugins: []};
 
@@ -33,17 +32,12 @@ Object.keys(entries).forEach(function (name) {
 })
 
 const clientConfig = {
-    devServer: {
-        open: false,
-        port: 3000,
-        historyApiFallback: true
-    },
-    devtool: 'eval-source-map',
     entry: webpackConfig.entry,
     output: {
+        path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].js',
         chunkFilename: 'static/js/chunk.[id].js',
-        publicPath: '/'
+        publicPath: './'
     },
     module: {
         rules: [
@@ -53,7 +47,7 @@ const clientConfig = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath:'static/media/'
+                            outputPath: 'static/media/'
                         }
                     }
                 ]
@@ -63,7 +57,7 @@ const clientConfig = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        outputPath:'static/media/'
+                        outputPath: 'static/media/'
                     }
                 }]
             },
@@ -99,15 +93,27 @@ const clientConfig = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("development")
+                NODE_ENV: JSON.stringify("production")
             }
         }),
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            uglifyOptions: {
+                ecma: 8,
+                compress: {
+                    warnings: false,
+                    comparisons: false
+                },
+                output: {
+                    ascii_only: true,
+                    comments: false
+                },
+                warnings: false
+            }
+        }),
         new ExtractTextPlugin("static/css/[name].css"),
         ...webpackConfig.plugins,
-        new ProgressBarPlugin(),
-        new WatchMissingNodeModulesPlugin(path.resolve('node_modules'))
-
+        new ProgressBarPlugin()
     ],
     node: {
         dgram: 'empty',
@@ -118,4 +124,62 @@ const clientConfig = {
     target: 'electron-renderer'
 };
 
-module.exports = clientConfig;
+const serverConfig = {
+    entry: {
+        main: path.resolve(__dirname, 'app/index.js')
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist/app'),
+        filename: '[name].js',
+        publicPath: '/'
+    },
+    externals: {
+        sqlite3: 'sqlite3',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js)$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015', 'stage-0'],
+                        plugins: ['transform-object-assign']
+                    }
+                }
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.json']
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            uglifyOptions: {
+                ecma: 8,
+                compress: {
+                    warnings: false,
+                    comparisons: false
+                },
+                output: {
+                    ascii_only: true,
+                    comments: false
+                },
+                warnings: false
+            }
+        }),
+        new ProgressBarPlugin()
+    ],
+    node: {
+        __filename: false,
+        __dirname: false
+    },
+    target: 'electron-main'
+};
+
+module.exports = [clientConfig, serverConfig];
