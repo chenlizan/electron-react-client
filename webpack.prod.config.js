@@ -20,13 +20,13 @@ const getEntries = (globPath) => {
     return entries;
 }
 
-const entries = getEntries('package/*/index.jsx');
+const entries = getEntries('gui/package/*/index.jsx');
 
 Object.keys(entries).forEach(function (name) {
     webpackConfig.entry[name] = entries[name];
     const plugin = new HtmlWebpackPlugin({
         filename: name + '.html',
-        template: 'package/' + name + '/index.html',
+        template: 'gui/package/' + name + '/index.html',
         chunks: [name]
     });
     webpackConfig.plugins.push(plugin);
