@@ -175,7 +175,7 @@ const serverConfig = {
             }
         }),
         new CopyWebpackPlugin([{
-            from: "package.json",
+            from: "templates/package.json",
             to: "../",
             force: true
         }]),

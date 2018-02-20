@@ -2,31 +2,33 @@ import {app, BrowserWindow} from 'electron';
 import {ipcMsgPump} from './ipcMsg';
 import controllers from './controllers';
 
-app.commandLine.appendSwitch('disable-http-cache');
-
 controllers(app);
-
 ipcMsgPump();
+
+app.commandLine.appendSwitch('disable-http-cache');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let accountWindow;
 
 function createLoginWindow() {
-    // Create the browser window.
-
-    accountWindow = new BrowserWindow({
-        width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
-        autoHideMenuBar: false, frame: true, resizable: true, show: true
-    });
+    if (process.env.NODE_ENV == 'production') {
+        // Create the browser window.
+        accountWindow = new BrowserWindow({
+            width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
+            autoHideMenuBar: true, frame: false, resizable: false, show: false
+        });
+        // and load the account.html of the app.
+        accountWindow.loadURL(`file://${__dirname}/../account.html#/login`);
+    } else {
+        accountWindow = new BrowserWindow({
+            width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
+            autoHideMenuBar: false, frame: true, resizable: true, show: false
+        });
+        accountWindow.loadURL('http://localhost:3000/account.html#/login');
+    }
 
     accountWindow.once('ready-to-show', () => accountWindow.show());
-
-    // and load the account.html of the app.
-    if (process.env.NODE_ENV == 'production')
-        accountWindow.loadURL(`file://${__dirname}/../account.html#/login`);
-    else
-        accountWindow.loadURL('http://localhost:3000/account.html#/login');
 
     // Open the DevTools.
     // accountWindow.webContents.openDevTools();

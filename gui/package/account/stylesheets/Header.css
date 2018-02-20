@@ -2,6 +2,7 @@
     width: 100%;
     height: 175px;
     position: relative;
+    -webkit-app-region: drag;
 }
 .bg-image {
     width: 100%;
