@@ -6,7 +6,7 @@ import '../stylesheets/ChatContainer.css';
 export default class ChatContainer extends React.Component {
     render () {
         return (
-            <div className='content'>
+            <div className='chatContent'>
                 <SlidebarList />
                 <ChatWindow />
             </div>

@@ -37,7 +37,7 @@
      background-color: #fff;
      color: #000;
      height: 60px;
-     padding: 0 20px;
+     padding: 0;
  }
  #mainFrame .ant-layout-footer{
      height: 172px;

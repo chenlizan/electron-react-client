@@ -7,6 +7,7 @@ import {configureStore} from './store';
 import '../../../node_modules/antd/dist/antd.min.css';
 import '../../assets/style/iconfont.css';
 import '../../assets/style/antdReset.css';
+import '../../assets/style/resetStyle.css';
 
 const store = configureStore();
 

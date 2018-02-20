@@ -28,6 +28,7 @@ export default class Login extends React.Component {
         }));
         console.log('loginValue: ', loginValue);
         login(loginValue);
+        ipcRenderer.send('open', ['main', '/main.html#/mainFrame']);
 
     };
 

@@ -1,6 +1,29 @@
 .chatWrapper{
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: row; 
+}
+.tabWrapper{
+    width: 88px;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+}
+.tabItem {
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+}
+.tabItemActive {
+    background-color: rgba(255,255,255,0.3);
+    color: #108ee9;
+}
+.iconStyle {
+    font-size: 30px;
+}
+.mainFrameRight{
+    flex: 1;
 }
 /* 图标处理 */
 .iconContainer{
@@ -13,3 +36,31 @@
 .iconContainer span{
     font-size: 12px;
 }
+/* 遮罩层 */
+.bgWrapper {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 20;
+}
+.mainUserInfo {
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    position: fixed;
+    right: 50%;
+    top: 50%;
+    margin-right: -25%;
+    margin-top: -25%;
+    padding: 10px;
+}
+/* .bgIcon {
+    color: #fff;
+    font-size: 20px;
+    position: fixed;
+    right: 9px;
+    top: 6px;
+} */

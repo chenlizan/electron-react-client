@@ -1,50 +1,39 @@
-.chatMessageList{
+.messageList{
     height: 100%;
     overflow-y: hidden;
     border-right: 1px solid #ccc;
 }
+.GroupDiviceTitle{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    border-top: 1px solid #ccc;
+}
 /* 一条消息项 */
-.chatItem{
+.listItem{
     height: 60px;
-    border-bottom: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     cursor: pointer;
 }
-.chatItemLeft{
+.leftWrapper{
     width: 60px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.chatItemRight{
+.rightWrapper{
     flex: 1;
-}
-.chatName{
-    height: 30px;
-    line-height: 30px;
-    position: relative;
-    font-size: 15px !important;
-}
-.chatTime{
-    position: absolute;
-    right: 10px;
-}
-.chatDetail{
-    height: 30px;
-    line-height: 15px;
-    font-size: 13px;
-}
-/* 搜索 */
-.chatSearchContainer {
     height: 60px;
     line-height: 60px;
-    padding-left: 10px;
-    border-bottom: 1px solid #ddd;
+    font-size: 14px;
 }
-.IconStyle{
-    font-size: 22px;
+/* 搜索 */
+.groupSearchContainer {
+    width: 280px;
+    height: 60px;
+    line-height: 60px;
     padding-left: 10px;
 }
 .addIcon {

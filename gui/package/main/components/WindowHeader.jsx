@@ -15,9 +15,9 @@ export default class Header extends React.Component {
     render () {
         const { name } = this.props;
         return (
-            <div className='heade'>
-                <span className='name'>{name}</span>
-                <div className='icon'>
+            <div className='windowHeader'>
+                <span className='headerName'>{name}</span>
+                <div className='headerIcon'>
                     <Icon type='minus' onClick={this.minimize} className='Icon' />
                     <Icon type='close' onClick={this.close} className='Icon' />
                 </div>
