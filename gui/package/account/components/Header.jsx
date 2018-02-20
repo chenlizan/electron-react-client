@@ -1,30 +1,35 @@
 import React from 'react';
-import { Avatar } from 'antd';
+import {Avatar} from 'antd';
+import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import '../stylesheets/Header.css';
 import bgImage from '../asset/images/bg-image.jpg';
 
+
 export default class Header extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
     };
+
     minimize = () => {
-        this.props.minimize();
+        const {minimize} = this.props;
+        minimize ? minimize : ipcMsgRenderer.minWindow(windowID.account);
     };
+
     close = () => {
-        this.props.close();
-    }
-    render () {
-        const { isShowAvatar } = this.props;
+        const {close} = this.props;
+        close ? close : ipcMsgRenderer.closeWindow(windowID.account);
+    };
+
+    render() {
+        const {isShowAvatar} = this.props;
         return (
             <div className='header-wrapper'>
                 <img src={bgImage} className='bg-image'/>
                 <div className='operate-icon'>
-                    <i className='iconfont icon-suoxiao icon' onClick={this.minimize} />
-                    <i className='iconfont icon-close icon' onClick={this.close} />
+                    <i className='iconfont icon-suoxiao icon' onClick={this.minimize}/>
+                    <i className='iconfont icon-close icon' onClick={this.close}/>
                 </div>
-                {
-                    isShowAvatar ? <Avatar size='large' className='user-avatar'>user</Avatar> : null
-                }
+                {isShowAvatar ? <Avatar size='large' className='user-avatar'>user</Avatar> : null}
             </div>
         )
     }

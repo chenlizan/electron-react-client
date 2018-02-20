@@ -1,11 +1,9 @@
 import React from 'react';
 import Header from '../components/Header';
 import {Icon, Input, Button, Checkbox, Avatar} from 'antd';
+import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import {login} from "../services";
 import '../stylesheets/Login.css';
-
-const electron = window.require('electron');
-const {ipcRenderer} = electron;
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -28,17 +26,17 @@ export default class Login extends React.Component {
         }));
         console.log('loginValue: ', loginValue);
         login(loginValue);
-        ipcRenderer.send('open', ['main', '/main.html#/mainFrame']);
-
+        ipcMsgRenderer.showWindow(windowID.main);
     };
 
-    minimize = () => {
-        console.log('minimize window');
-    };
-
-    close = () => {
-        console.log('close window');
-    };
+    //可以自定义最小化和关闭逻辑
+    // minimize = () => {
+    //     console.log('minimize window');
+    // };
+    //
+    // close = () => {
+    //     console.log('close window');
+    // };
 
     getInput = (e) => {
         const {id, value} = e.currentTarget;
@@ -66,7 +64,7 @@ export default class Login extends React.Component {
         const {isShowErrorTip} = this.state;
         return (
             <div className='login-wrapper' id='login'>
-                <Header isShowAvatar={true} minimize={this.minimize} close={this.close}/>
+                <Header isShowAvatar={true}/>
                 <div className='input-wrapper'>
                     <i className='iconfont icon-custom-user input-icon'/>
                     <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput}/>

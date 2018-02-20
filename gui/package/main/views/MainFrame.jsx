@@ -3,17 +3,23 @@ import ChatContainer from '../chat/ChatContainer.jsx';
 import Contact from '../contact/Contact.jsx';
 import Group from '../group/Group.jsx';
 import UserInfo from '../user/UserInfo.jsx';
+import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import '../stylesheets/MainFrame.css';
 import userIcon from '../assets/images/user_icon.png';
 
-export default class MainFrame extends React.Component{
-    constructor (props) {
+export default class MainFrame extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             isShowUserInfo: false,
             nowIndex: 0
         }
     };
+
+    componentDidMount() {
+        ipcMsgRenderer.closeWindow(windowID.account);
+    }
+
     showUserInfo = () => {
         this.setState({
             isShowUserInfo: true
@@ -29,24 +35,27 @@ export default class MainFrame extends React.Component{
             nowIndex: index
         })
     };
-    
-    render () {
+
+    render() {
         const tabItemIcon = [
-            { icon: 'iconfont icon-xiaoxi iconStyle'},
-            { icon: 'iconfont icon-custom-user iconStyle' },
-            { icon: 'iconfont icon-qunzu iconStyle' }
+            {icon: 'iconfont icon-xiaoxi iconStyle'},
+            {icon: 'iconfont icon-custom-user iconStyle'},
+            {icon: 'iconfont icon-qunzu iconStyle'}
         ]
-        const { isShowUserInfo, nowIndex, contentComponent } = this.state;
+        const {isShowUserInfo, nowIndex, contentComponent} = this.state;
         return (
             <div className='chatWrapper' id='mainFrame'>
                 <ul className='tabWrapper'>
                     <li className='tabItem' onClick={this.showUserInfo}>
-                        <img src={userIcon} /> 
+                        <img src={userIcon}/>
                     </li>
                     {
                         tabItemIcon.map((item, index) => {
                             return (
-                                <li onClick={ () =>{ this.chooseTabItem(index) }} className={this.state.nowIndex === index ? 'tabItem tabItemActive' : 'tabItem'} key={index}>
+                                <li onClick={() => {
+                                    this.chooseTabItem(index)
+                                }} className={this.state.nowIndex === index ? 'tabItem tabItemActive' : 'tabItem'}
+                                    key={index}>
                                     <i className={item.icon}></i>
                                 </li>
                             )
@@ -56,13 +65,14 @@ export default class MainFrame extends React.Component{
                 <div className='mainFrameRight'>
                     {
                         nowIndex === 0
-                            ? <ChatContainer />
+                            ? <ChatContainer/>
                             : nowIndex === 1
-                                ? <Contact />
-                                : <Group />
+                            ? <Contact/>
+                            : <Group/>
                     }
                 </div>
-                <div className='bgWrapper' onClick={this.hideUserInfo} style={{display: isShowUserInfo ? 'block' : 'none'}}>
+                <div className='bgWrapper' onClick={this.hideUserInfo}
+                     style={{display: isShowUserInfo ? 'block' : 'none'}}>
                     <div className='mainUserInfo'>
                         <UserInfo hideUserInfo={this.hideUserInfo}/>
                     </div>

@@ -1,9 +1,9 @@
 import {app, BrowserWindow} from 'electron';
-import {ipcMsgPump} from './ipcMsg';
+import {ipcMsgMain} from './ipcMsg';
 import controllers from './controllers';
 
 controllers(app);
-ipcMsgPump();
+ipcMsgMain();
 
 app.commandLine.appendSwitch('disable-http-cache');
 
@@ -26,12 +26,11 @@ function createLoginWindow() {
             autoHideMenuBar: false, frame: true, resizable: true, show: false
         });
         accountWindow.loadURL('http://localhost:3000/account.html#/login');
+        // Open the DevTools.
+        // accountWindow.webContents.openDevTools();
     }
 
     accountWindow.once('ready-to-show', () => accountWindow.show());
-
-    // Open the DevTools.
-    // accountWindow.webContents.openDevTools();
 
     // Emitted when the window is closed.
     accountWindow.on('closed', function () {

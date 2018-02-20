@@ -1,6 +1,7 @@
 .headerName{
     font-size: 16px;
     font-weight: 500;
+    -webkit-app-region: no-drag;
 }
 .nick{
     font-size: 14px;
@@ -11,13 +12,15 @@
     line-height: 60px;
     padding-left: 20px;
     border-bottom: 1px solid #ccc;
+    -webkit-app-region: drag;
 }
 .headerIcon {
     position:absolute;
     top: -10px;
-    right: 10px; 
+    right: 10px;
 }
 .Icon{
     font-size: 18px;
     padding-left: 10px;
+    -webkit-app-region: no-drag;
 }

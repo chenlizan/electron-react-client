@@ -1,9 +1,21 @@
 const electron = window.require('electron');
 const {ipcRenderer} = electron;
 
-export const ipcMsgRenderer = () => {
+export const ipcMsgRenderer = {
+    showWindow: (args) => {
+        ipcRenderer.send('showWindow', args);
+    },
 
-    showWindow:(args) => {
-        ipcRenderer.send('open', args);
+    minWindow: (args) => {
+        ipcRenderer.send('minWindow', args);
+    },
+
+    closeWindow: (args) => {
+        ipcRenderer.send('closeWindow', args);
     }
+};
+
+export const windowID = {
+    account: ['account', '/account.html#/login'],
+    main: ['main', '/main.html#/mainFrame']
 }

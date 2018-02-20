@@ -17,7 +17,17 @@
     "electron",
     "react"
   ],
-  "author": "chenlizan、guoqingpingls,cicizss",
+  "author": "chenlizan",
+  "contributors": [
+    {
+      "name": "guoqingpingls",
+      "url": "https://github.com/guoqingpingls"
+    },
+    {
+      "name": "cicizss",
+      "url": "https://github.com/cicizss"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chenlizan/electron-react-client/issues"

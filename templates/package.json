@@ -3,18 +3,16 @@
   "version": "1.0.0",
   "description": "A Electron desktop application. Built with Electron and React",
   "main": "app/main.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chenlizan/electron-react-client.git"
-  },
-  "keywords": [
-    "electron",
-    "react"
+  "author": "chenlizan",
+  "contributors": [
+    {
+      "name": "guoqingpingls",
+      "url": "https://github.com/guoqingpingls"
+    },
+    {
+      "name": "cicizss",
+      "url": "https://github.com/cicizss"
+    }
   ],
-  "author": "chenlizan、guoqingpingls,cicizss",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chenlizan/electron-react-client/issues"
-  },
-  "homepage": "https://github.com/chenlizan/electron-react-client"
+  "license": "MIT"
 }
