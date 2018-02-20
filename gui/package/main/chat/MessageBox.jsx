@@ -25,10 +25,10 @@ class MessageBox extends React.Component {
 
     // 接受新消息时，重新获取信息
     componentWillReceiveProps (nextProps) {
-        const { speakerId, isGroupChat, operation } = nextProps;
-        if (operation.action === 'imMsg' || speakerId !== this.props.speakerId) {
-            this.initMsgBox(speakerId, isGroupChat);
-        }
+        // const { speakerId, isGroupChat, operation } = nextProps;
+        // if (operation.action === 'imMsg' || speakerId !== this.props.speakerId) {
+        //     this.initMsgBox(speakerId, isGroupChat);
+        // }
     }
     // 获取聊天信息
     initMsgBox = (id, isGroup) => {

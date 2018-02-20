@@ -1,32 +1,72 @@
 import React from 'react';
-import { Tabs } from 'antd';
 import ChatContainer from '../chat/ChatContainer.jsx';
+import Contact from '../contact/Contact.jsx';
+import Group from '../group/Group.jsx';
+import UserInfo from '../user/UserInfo.jsx';
 import '../stylesheets/MainFrame.css';
 import userIcon from '../assets/images/user_icon.png';
 
-const { TabPane } = Tabs
 export default class MainFrame extends React.Component{
     constructor (props) {
         super(props);
+        this.state = {
+            isShowUserInfo: false,
+            nowIndex: 0
+        }
     };
+    showUserInfo = () => {
+        this.setState({
+            isShowUserInfo: true
+        })
+    };
+    hideUserInfo = () => {
+        this.setState({
+            isShowUserInfo: false,
+        })
+    };
+    chooseTabItem = (index) => {
+        this.setState({
+            nowIndex: index
+        })
+    };
+    
     render () {
+        const tabItemIcon = [
+            { icon: 'iconfont icon-xiaoxi iconStyle'},
+            { icon: 'iconfont icon-custom-user iconStyle' },
+            { icon: 'iconfont icon-qunzu iconStyle' }
+        ]
+        const { isShowUserInfo, nowIndex, contentComponent } = this.state;
         return (
             <div className='chatWrapper' id='mainFrame'>
-                <Tabs defaultActiveKey='1' tabPosition='left' style={{ height: '100%' }}>
-                    <TabPane tab={<img src={userIcon} />} disabled key='0'>
-                    </TabPane>
-                    <TabPane tab={<div className='iconContainer'><i className='iconfont icon-xiaoxi'></i><span>会话</span></div>} key='1'>
-                        <ChatContainer />
-                    </TabPane>
-                    <TabPane tab={<div className='iconContainer'><i className='iconfont icon-custom-user'></i><span>好友</span></div>} key='2'>
-                        {/* <Contact /> */}
-                        联系人
-                    </TabPane>
-                    <TabPane tab={<div className='iconContainer'><i className='iconfont icon-qunzu'></i><span>群聊</span></div>} key='3'>
-                        {/* <GroupChat /> */}
-                        群聊
-                    </TabPane>
-                </Tabs>
+                <ul className='tabWrapper'>
+                    <li className='tabItem' onClick={this.showUserInfo}>
+                        <img src={userIcon} /> 
+                    </li>
+                    {
+                        tabItemIcon.map((item, index) => {
+                            return (
+                                <li onClick={ () =>{ this.chooseTabItem(index) }} className={this.state.nowIndex === index ? 'tabItem tabItemActive' : 'tabItem'} key={index}>
+                                    <i className={item.icon}></i>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+                <div className='mainFrameRight'>
+                    {
+                        nowIndex === 0
+                            ? <ChatContainer />
+                            : nowIndex === 1
+                                ? <Contact />
+                                : <Group />
+                    }
+                </div>
+                <div className='bgWrapper' onClick={this.hideUserInfo} style={{display: isShowUserInfo ? 'block' : 'none'}}>
+                    <div className='mainUserInfo'>
+                        <UserInfo hideUserInfo={this.hideUserInfo}/>
+                    </div>
+                </div>
             </div>
         )
     }

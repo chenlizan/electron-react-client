@@ -1,14 +1,18 @@
-.name{
+.headerName{
     font-size: 16px;
     font-weight: 500;
 }
 .nick{
     font-size: 14px;
 }
-.header{
+.windowHeader{
     position: relative;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ccc;
 }
-.icon {
+.headerIcon {
     position:absolute;
     top: -10px;
     right: 10px; 

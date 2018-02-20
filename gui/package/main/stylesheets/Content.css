@@ -1,0 +1,51 @@
+.groupContentWrapper {
+    flex: 1;
+    padding: 0px 0px 20px 20px;
+    height: 100%;
+    /* position: relative; */
+}
+.groupMemberTitle{
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+}
+.groupItem {
+    width: 60px;
+    height: 80px;
+    text-align: center;
+    padding-top: 10px;
+    display: inline-block;
+}
+.deal {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 28px;
+    font-size: 40px;
+    border: 1px solid #ccc;
+    font-weight: 100;
+    text-align: center;
+}
+.name {
+    display: inline-block;
+}
+.ulWrapper {
+    /* position: absolute;
+    bottom: 0px; */
+    padding-top: 20px;
+    list-style: none;
+}
+.liWrapper{
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+}
+.title{
+    display: inline-block;
+    width: 100px;
+    text-align: justify;
+}
+.sendMessage {
+    margin-top: 20px;
+    text-align: center;
+}

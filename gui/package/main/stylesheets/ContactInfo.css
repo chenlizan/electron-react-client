@@ -1,0 +1,54 @@
+.contactInfoWrapper{
+    width: 100%;
+    position: relative;
+}
+.chatContentWrapper{
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+.header{
+    height: 170px;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.userName{
+    font-size: 30px;
+}
+.userIcon{
+    width: 60px;
+    height: 60px;
+    float: right
+}
+.whiteSpace{
+    display: inline-block;
+    width: 30px;
+    height: 100%;
+}
+.content{
+    height: 170px;
+    padding-top: 30px;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+.item {
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+}
+.footer{
+    height: 170px;
+    width: 100%
+}
+.buttonStyle{
+    margin: 30px auto;
+    width: 150px;
+    display: block;
+}
