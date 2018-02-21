@@ -1,15 +1,15 @@
-.groupContentWrapper {
+.group-content-wrapper {
     flex: 1;
     padding: 0px 0px 20px 20px;
     height: 100%;
     /* position: relative; */
 }
-.groupMemberTitle{
+.group-member-title{
     font-size: 15px;
     height: 30px;
     line-height: 30px;
 }
-.groupItem {
+.group-item {
     width: 60px;
     height: 80px;
     text-align: center;
@@ -29,13 +29,13 @@
 .name {
     display: inline-block;
 }
-.ulWrapper {
+.ul-wrapper {
     /* position: absolute;
     bottom: 0px; */
     padding-top: 20px;
     list-style: none;
 }
-.liWrapper{
+.li-wrapper{
     height: 30px;
     line-height: 30px;
     font-size: 15px;
@@ -45,7 +45,7 @@
     width: 100px;
     text-align: justify;
 }
-.sendMessage {
+.send-message {
     margin-top: 20px;
     text-align: center;
 }

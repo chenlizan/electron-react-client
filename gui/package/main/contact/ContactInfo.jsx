@@ -15,20 +15,20 @@ export default class ContactInfo extends React.Component {
             account: '1323211234567'
         }
         return (
-            <div className='contactInfoWrapper'>
-                <div className='chatContentWrapper'>
+            <div className='contact-info-wrapper'>
+                <div className='chat-content-wrapper'>
                     <div className='header'>
-                        <span className='userName'>{info.userName}</span>
+                        <span className='user-name'>{info.userName}</span>
                         <i style={{paddingLeft: '10px',color: '#108ee9',fontSize: '20px'}} className='iconfont icon-custom-user'></i>
-                        <img className='userIcon' src={userIcon} alt="userIcon"/>
+                        <img className='user-icon' src={userIcon} alt="userIcon"/>
                     </div>
                     <ul className='content'>
-                        <li className='item'>备&nbsp;&nbsp;注<span className='whiteSpace'></span>{info.nick}</li>
-                        <li className='item'>地&nbsp;&nbsp;区<span className='whiteSpace'></span>{info.area}</li>
-                        <li className='item'>微信号<span className='whiteSpace'></span>{info.account}</li>
+                        <li className='item'>备&nbsp;&nbsp;注<span className='white-space'></span>{info.nick}</li>
+                        <li className='item'>地&nbsp;&nbsp;区<span className='white-space'></span>{info.area}</li>
+                        <li className='item'>微信号<span className='white-space'></span>{info.account}</li>
                     </ul>
                     <div className='footer'>
-                        <Button className='buttonStyle' type="primary" size='large'>发送</Button>
+                        <Button className='button-style' type="primary" size='large'>发送</Button>
                     </div>
                 </div>
             </div>

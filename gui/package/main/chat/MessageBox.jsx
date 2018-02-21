@@ -87,10 +87,10 @@ class MessageBox extends React.Component {
         let chatMsg = data.map((item, index) => {
             if (item.speakerId === mineId) {
                 return (
-                    <div key={index} className='rightBox'>
-                        <div className='rightContent'>
-                            <Avatar shape="square" className='rightPic'>我</Avatar>
-                            <div className='rightMsg'>
+                    <div key={index} className='right-box'>
+                        <div className='right-content'>
+                            <Avatar shape="square" className='right-pic'>我</Avatar>
+                            <div className='right-msg'>
                                 {item.content}
                             </div>
                         </div>
@@ -98,15 +98,15 @@ class MessageBox extends React.Component {
                 )
             }
             return (
-                <div key={index} className='leftBox'>
-                    <div className='leftTitle'>
-                        <div className='leftContent'>
-                            <Avatar className='leftPic' shape="square">
+                <div key={index} className='left-box'>
+                    <div className='left-title'>
+                        <div className='left-content'>
+                            <Avatar className='left-pic' shape="square">
                                 { item.speakerName.slice(item.speakerName.length-2) }
                             </Avatar>
-                            <div className='leftMsg'>
+                            <div className='left-msg'>
                                 <div>{ item.speakerName}</div>
-                                <div className='leftMsgContent'>
+                                <div className='left-msg-content'>
                                     {item.content}
                                 </div>
                             </div>
@@ -116,7 +116,7 @@ class MessageBox extends React.Component {
             )
         })
         return (
-            <div className='messageBox'>
+            <div className='message-box'>
                 <Scrollbars
                     ref="scrollbars"
                 >

@@ -21,11 +21,11 @@ export default class Header extends React.Component {
     render() {
         const {name} = this.props;
         return (
-            <div className='windowHeader'>
-                <span className='headerName'>{name}</span>
-                <div className='headerIcon'>
-                    <Icon type='minus' onClick={this.minimize} className='Icon'/>
-                    <Icon type='close' onClick={this.close} className='Icon'/>
+            <div className='window-header'>
+                <span className='window-header-name'>{name}</span>
+                <div className='window-icon-wrapper'>
+                    <i className='iconfont icon-suoxiao window-icon' onClick={this.minimize} />
+                    <i className='iconfont icon-close window-icon' onClick={this.close} />
                 </div>
             </div>
         )

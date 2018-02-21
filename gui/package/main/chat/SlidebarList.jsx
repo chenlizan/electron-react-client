@@ -11,7 +11,7 @@ class SlidebarList extends React.Component {
 
     render () {
         return (
-            <div className='chatSidebarList'>
+            <div className='chat-sidebar-list'>
                 <MessageList />
             </div>
         );

@@ -9,7 +9,7 @@ export default class GroupDetail extends React.Component {
     }
     render () {
         return (
-            <div className='groupDetailWrapper'>
+            <div className='group-detail-wrapper'>
                 <WindowHeader name='武汉react技术交流群' />
                 <Content />
             </div>

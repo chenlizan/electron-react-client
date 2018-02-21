@@ -29,7 +29,7 @@ class ChatWindow extends React.Component {
 
     render () {
         return (
-            <div className='chatWindow'>
+            <div className='chat-window'>
                 <Layout>
                     <Header>
                         <WindowHeader name='黄蓉婆婆'/>

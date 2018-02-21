@@ -57,8 +57,8 @@ class InputBox extends React.Component {
             marginRight: '10px'
         }
         return (
-            <div className='inputBox' id='mainFrame-sendMessage'>
-                <div className='operateContainer'>
+            <div className='input-box' id='mainFrame-sendMessage'>
+                <div className='operate-container'>
                     {/* <i style={iconStyle} className='iconfont icon-xiaolian'></i>
                     <i style={iconStyle} className='iconfont icon-wenjian'></i>
                     <i style={iconStyle} className='iconfont icon-jiandao'></i>

@@ -3,13 +3,13 @@
     margin-top: 12px;
     margin-right: 20px;
 }
-.chatWindow{
+.chat-window{
     display:flex;
     flex:1;
     flex-direction: row;
 }
 
-.chatWindow .titleName{
+.chat-window .title-name{
     position: absolute;
     top: 61px;
     margin-left: 20px;

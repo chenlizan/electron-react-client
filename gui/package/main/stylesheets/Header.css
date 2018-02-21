@@ -1,11 +1,11 @@
-.allWrap{
+.all-wrap{
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.titleWrap {
+.title-wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -30,18 +30,18 @@
     -webkit-app-region: no-drag;
 }
 
-.Icon {
+.header-icon {
     font-size: 20px;
     color: white;
 }
 
-.Icon:hover {
+.header-icon:hover {
     font-size: 20px;
     color: brown;
 }
 
 
-.Wrap{
+.header-wrap{
     width: 100%;
     height: calc(100vh - 45px);
     padding: 30px;
@@ -49,7 +49,7 @@
     justify-content: center;
     background-color: #f4f4f4;
 }
-.content {
+.header-content {
     width: 100%;
     height: 100%;
     background-color: white;

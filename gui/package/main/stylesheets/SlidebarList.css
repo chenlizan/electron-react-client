@@ -1,11 +1,11 @@
-.chatSidebarList {
+.chat-sidebar-list {
     /* height: 100%;
     float: left;
     flex: 0.5 */
     width: 280px;
     line-height: 60px;
 }
-/* .messageName{
+/* .message-name{
     position:absolute;
     width:100px;
     height:27px;

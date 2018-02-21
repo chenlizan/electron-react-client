@@ -204,30 +204,30 @@ class MessageList extends React.Component {
         }
         const { nowIndex } = this.state;
         return (
-            <div className='messageList' id='messageList'>
-                <div className='groupSearchContainer'>
+            <div className='message-list' id='messageList'>
+                <div className='group-search-container'>
                     <Search
                         placeholder="搜索"
                         onSearch={value => console.log(value)}
                         style={{ width: 225 }}
                         size="small"
                     />
-                    <div className='addIcon'>+</div>
+                    <div className='add-icon'>+</div>
                 </div>
                 <Scrollbars>
                     {
                         dataSource.map((item, index) => {
                             return (
                                 <div key={index}>
-                                    <div className='GroupDiviceTitle'>{ item.title }</div>
+                                    <div className='group-divice-title'>{ item.title }</div>
                                     {
                                         (item.list).map((ite, idx) => {
                                             return (
-                                                <div className='listItem' style={nowIndex === ite.id ? activeStyle : null} key={idx} onClick={() => { this.rowClick(ite); }} onContextMenu={() => { this.rowRightClick(ite) }}>
-                                                    <div className='leftWrapper'>
+                                                <div className='list-item' style={nowIndex === ite.id ? activeStyle : null} key={idx} onClick={() => { this.rowClick(ite); }} onContextMenu={() => { this.rowRightClick(ite) }}>
+                                                    <div className='left-wrapper'>
                                                         <Avatar shape="square" size='large'>{ ite.keyName }</Avatar>
                                                     </div>
-                                                    <div className='rightWrapper'>
+                                                    <div className='right-wrapper'>
                                                         <span>{ ite.name }</span>
                                                     </div>
                                                 </div>
