@@ -1,9 +1,7 @@
 import {handleActions} from "redux-actions";
 
 const initState = {
-    account: {
-        loginInfo: {}
-    }
+    electron: {}
 };
 
 const reducer = handleActions({

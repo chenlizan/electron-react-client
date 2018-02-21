@@ -10,9 +10,10 @@ module.exports = {
         }).then(data => {
             return login(data)
         }).then(data => {
-            return electron_dispatch({action: 'login', result: data, state: true});
+            return electron_dispatch({action: 'login', data: data, state: true});
         }).catch(err => {
             console.log(`error: ${JSON.stringify(err)}`);
+            return electron_dispatch({action: 'login', data: err, state: false});
         });
     }
 }

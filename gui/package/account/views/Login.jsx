@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {Input, Button} from 'antd';
 import Header from '../components/Header';
-import {Icon, Input, Button, Checkbox, Avatar} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import {login} from "../services";
 import '../stylesheets/Login.css';
@@ -15,18 +16,24 @@ export default class Login extends React.Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        const {electron} = nextProps;
+        if (electron.action === 'login' && electron.state)
+            ipcMsgRenderer.showWindow(windowID.main);
+        else {
+            this.setState({isShowErrorTip: !electron.state});
+            setTimeout(() => {
+                this.setState({isShowErrorTip: electron.state});
+            }, 3000);
+        }
+    }
+
     handleSubmit = (e) => {
         let loginValue = {
             password: this.state.password,
             username: this.state.username
         };
-        // 登录返回错误，isShowErrorTip显示为false
-        this.setState((prevState) => ({
-            isShowErrorTip: !prevState.isShowErrorTip
-        }));
-        console.log('loginValue: ', loginValue);
         login(loginValue);
-        ipcMsgRenderer.showWindow(windowID.main);
     };
 
     //可以自定义最小化和关闭逻辑
@@ -71,7 +78,8 @@ export default class Login extends React.Component {
                 </div>
                 <div className='input-wrapper'>
                     <i className='iconfont icon-password input-icon'/>
-                    <Input className='input-content' id='password' placeholder="请输入密码" onBlur={this.getInput}/>
+                    <Input className='input-content' id='password' placeholder="请输入密码" type="password"
+                           onBlur={this.getInput}/>
                 </div>
                 {
                     isShowErrorTip
@@ -89,3 +97,7 @@ export default class Login extends React.Component {
         );
     }
 }
+
+Login.propTypes = {
+    electron: PropTypes.object
+};

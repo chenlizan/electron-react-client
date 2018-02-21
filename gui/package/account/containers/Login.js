@@ -11,7 +11,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        handleSubmitLoginInfo: bindActionCreators(submit_login_info_creator, dispatch),
+        // handleSubmitLoginInfo: bindActionCreators(submit_login_info_creator, dispatch),
     };
 }
 

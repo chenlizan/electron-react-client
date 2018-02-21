@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Avatar} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import '../stylesheets/Header.css';
 import bgImage from '../asset/images/bg-image.jpg';
-
+import Login from "../views/Login";
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -34,3 +35,9 @@ export default class Header extends React.Component {
         )
     }
 }
+
+Header.propTypes = {
+    close: PropTypes.func,
+    minimize: PropTypes.func,
+    isShowAvatar: PropTypes.bool
+};

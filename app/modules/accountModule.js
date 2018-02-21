@@ -1,16 +1,18 @@
-import promise from "bluebird";
+import {apiHttpRequest} from '../utils/httpRequest'
 
 class Account {
     constructor() {
     }
 
     login(data) {
-        return new promise((resolve, reject) => {
-            return setTimeout(function () {
-                console.log(`class: ${JSON.stringify(data)}`);
-                return resolve('login successful');
-            }, 3000);
-        });
+        const userInfo = {
+            user: data.username,
+            password: data.password
+        };
+        if (process.env.NODE_ENV == 'production')
+            return apiHttpRequest('/userInfo/login', 'POST', userInfo);
+        else
+            return {statusCode: 0, message: null, result: {token: 'token_eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.'}}
     }
 }
 
