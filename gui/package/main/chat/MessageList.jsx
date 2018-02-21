@@ -181,33 +181,33 @@ class MessageList extends React.Component {
         };
         const { nowIndex } = this.state;
         return (
-            <div className='chatMessageList' id='messageList'>
-                <div className='chatSearchContainer'>
+            <div className='chat-message-list' id='messageList'>
+                <div className='chat-search-container'>
                     <Search
                         placeholder="搜索"
                         onSearch={value => console.log(value)}
                         style={{ width: 225 }}
                         size="small"
                     />
-                    <div className='addIcon'>+</div>
+                    <div className='add-icon'>+</div>
                     {/* <Icon type="plus-square-o" className='IconStyle' style={{verticalAlign: 'middle'}} /> */}
                 </div>
                 <Scrollbars style={{ marginBottom: '0px' }}>
                     {
                         dataSource.map((item, index) => {
                             return (
-                                <div className='chatItem' style={ nowIndex === item.id ? activeStyle : null } key={index} onClick={() => { this.rowClick(item); }} onContextMenu={() => { this.rowRightClick(item) }}>
-                                    <div className='chatItemLeft'>
+                                <div className='chat-item' style={ nowIndex === item.id ? activeStyle : null } key={index} onClick={() => { this.rowClick(item); }} onContextMenu={() => { this.rowRightClick(item) }}>
+                                    <div className='chat-item-left'>
                                         <Badge dot>
                                             <Avatar shape="square" size='large'>{ item.name }</Avatar>
                                         </Badge>
                                     </div>
-                                    <div className='chatItemRight'>
-                                        <div className='chatName'>
+                                    <div className='chat-item-right'>
+                                        <div className='chat-name'>
                                             <span>{ item.name }</span>
-                                            <span className='chatTime'>13:00</span>
+                                            <span className='chat-time'>13:00</span>
                                         </div>
-                                        <div className='chatDetail'>{ item.lastMsg }</div>
+                                        <div className='chat-detail'>{ item.lastMsg }</div>
                                     </div>
                                 </div>
                             );

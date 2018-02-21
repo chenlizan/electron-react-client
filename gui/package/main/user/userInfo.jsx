@@ -11,18 +11,13 @@ export default class UserInfo extends React.Component {
             editEmail: false,
             editQM: false
         }
-    };
-    stopPropagation = (e) => {
-        e.stopPropagation()
     }
     editNick = (e) => {
-        // e.stopPropagation();
         this.setState({
             editNick: true
         })
     }
     saveNick = (e) => {
-        // e.stopPropagation();
         this.setState({
             editNick: false
         })
@@ -77,79 +72,79 @@ export default class UserInfo extends React.Component {
         }
         const { editNick, editPhone, editEmail, editQM } = this.state;
         return (
-            <div className='userInfoWrapper' onClick={this.stopPropagation}>
-                <div className='avatarWrapper'>
-                    <i className='iconfont icon-close closeIcon' onClick={hideUserInfo} />
-                    <img className='userAvatar' src={UserIcon} alt="user_icon" />
+            <div className='user-info-wrapper'>
+                <div className='avatar-wrapper'>
+                    <i className='iconfont icon-close close-icon' onClick={hideUserInfo} />
+                    <img className='user-avatar' src={UserIcon} alt="user_icon" />
                 </div>
-                <ul className='userInfoContent'>
-                    <li className='userInfoItem'>
-                        <span className='itemTitle'>账号：</span>
-                        <span className='itemDetail'>{ userInfo.account }</span>
+                <ul className='user-info-content'>
+                    <li className='user-info-item'>
+                        <span className='item-title'>账号：</span>
+                        <span className='item-detail'>{ userInfo.account }</span>
                     </li>
-                    <li className='userInfoItem'>
-                        <span className='itemTitle'>昵称：</span>
+                    <li className='user-info-item'>
+                        <span className='item-title'>昵称：</span>
                         {
                             editNick
                                 ? (
                                     <span>
-                                        <input type="text" placeholder={userInfo.nick} onBlur={this.saveNick} className='inputStyle'/>
+                                        <input type="text" placeholder={userInfo.nick} onBlur={this.saveNick} className='input-style'/>
                                     </span>
                                 )
                                 : (
                                     <span>
-                                        <span className='itemDetail'>{ userInfo.nick }</span>
+                                        <span className='item-detail'>{ userInfo.nick }</span>
                                         <span className='operate' onClick={this.editNick}>编辑</span>
                                     </span>
                                 )
                         }
                     </li>
-                    <li className='userInfoItem'>
-                        <span className='itemTitle'>手机号：</span>
+                    <li className='user-info-item'>
+                        <span className='item-title'>手机号：</span>
                         {
                             editPhone
                                 ? (
                                     <span>
-                                        <input type="text" placeholder={userInfo.tel} onBlur={this.savePhone} className='inputStyle'/>
+                                        <input type="text" placeholder={userInfo.tel} onBlur={this.savePhone} className='input-style'/>
                                     </span>
                                 )
                                 : (
                                     <span>
-                                        <span className='itemDetail'>{ userInfo.tel }</span>
+                                        <span className='item-detail'>{ userInfo.tel }</span>
                                         <span className='operate' onClick={this.editPhone}>编辑</span>
                                     </span>
                                 )
                         }
                     </li>
-                    <li className='userInfoItem'>
-                        <span className='itemTitle'>邮箱：</span>
+                    <li className='user-info-item'>
+                        <span className='item-title'>邮箱：</span>
                         {
                             editEmail
                                 ? (
                                     <span>
-                                        <input type="text" placeholder={userInfo.email} onBlur={this.saveEmail} className='inputStyle'/>
+                                        <input type="text" placeholder={userInfo.email} onBlur={this.saveEmail} className='input-style'/>
                                     </span>
                                 )
                                 : (
                                     <span>
-                                        <span className='itemDetail'>{ userInfo.email }</span>
+                                        <span className='item-detail'>{ userInfo.email }</span>
                                         <span className='operate' onClick={this.editEmail}>编辑</span>
                                     </span>
                                 )
                         }
                     </li>
-                    <li className='userInfoItem'>
-                        <span className='itemTitle'>个性签名：</span>
+                    <li className='user-info-item'>
+                        <span className='item-title'>个性签名：</span>
                         {
                             editQM
                                 ? (
                                     <span>
-                                        <input type="text" placeholder={userInfo.qianming} onBlur={this.saveQM} className='inputStyle'/>
+                                        <input type="text" placeholder={userInfo.qianming} onBlur={this.saveQM} className='input-style'/>
                                     </span>
                                 )
                                 : (
                                     <span>
-                                        <span className='itemDetail'>{ userInfo.qianming }</span>
+                                        <span className='item-detail'>{ userInfo.qianming }</span>
                                         <span className='operate' onClick={this.editQM}>编辑</span>
                                     </span>
                                 )

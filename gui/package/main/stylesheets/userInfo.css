@@ -1,11 +1,11 @@
 
-.avatarWrapper{
+.avatar-wrapper{
     width: 100%;
     height: 80px;
     border-bottom: 1px solid #ccc;
     position: relative;
 }
-.userAvatar {
+.user-avatar {
     width: 60px;
     height: 60px;
     position: absolute;
@@ -13,28 +13,28 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.closeIcon {
+.close-icon {
     position: absolute;
     top: 5px;
     right: 10px;
     color: #000;
     font-size: 20px;
 }
-.userInfoContent {
+.user-info-content {
     margin-top: 20px;
 }
-.userInfoItem {
+.user-info-item {
     width: 340px;
     height: 30px;
     line-height: 30px;
     font-size: 15px;
     margin: 0px auto;
 }
-.itemTitle {
+.item-title {
     width: 80px;
     display: inline-block;
 }
-.itemDetail {
+.item-detail {
 
 }
 .operate {
@@ -43,7 +43,7 @@
     display: inline-block;
     cursor: pointer;
 }
-.inputStyle {
+.input-style {
     width: 120px;
     height: 30px;
     border: 1px solid #ccc;

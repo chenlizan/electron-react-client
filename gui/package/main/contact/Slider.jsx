@@ -111,35 +111,35 @@ export default class Slider extends React.Component {
         }
         const { nowIndex } = this.state;
         return (
-            <div id='chatContact' className='contactSliderWrapper'>
-                <div className='searchContainer'>
+            <div id='chatContact' className='contact-slider-wrapper'>
+                <div className='search-container'>
                     <Search
                         placeholder="搜索"
                         onSearch={value => console.log(value)}
                         style={{ width: 225 }}
                         size="small"
                     />
-                    <div className='addIcon'>+</div>
+                    <div className='add-icon'>+</div>
                 </div>
                 <Scrollbars>
-                    <div className='sliderItem' onClick={this.addFriend} style={{borderBottom: '1px solid #ddd'}}>
-                        <div className='iconWrapper'>
+                    <div className='slider-item' onClick={this.addFriend} style={{borderBottom: '1px solid #ddd'}}>
+                        <div className='icon-wrapper'>
                             <i style={{fontSize: '34px', color: '#fff'}} className='iconfont icon-custom-user' />
                         </div>
                         {/* <Avatar shape="square" size="large"><icon style={{fontSize: '34px'}} className='iconfont icon-lianxiren' /></Avatar> */}
-                        <span className='sliderName'>新的朋友</span>
+                        <span className='slider-name'>新的朋友</span>
                     </div>
                     {
                         data.map((item, index) => {
                             return (
-                                <div className='itemList' key={index}>
-                                    <span className='sliderTitle'>{ item.title }</span>
+                                <div className='item-list' key={index}>
+                                    <span className='slider-title'>{ item.title }</span>
                                     {
                                         item.list.map((ite, idx) => {
                                             return (
-                                                <div className='sliderItem' style={ nowIndex === ite.id ? activeStyle : null } key={idx} onClick={() => {this.changeCurrent(ite)}}>
+                                                <div className='slider-item' style={ nowIndex === ite.id ? activeStyle : null } key={idx} onClick={() => {this.changeCurrent(ite)}}>
                                                     <Avatar shape="square" size="large">{ ite.userName }</Avatar>
-                                                    <span className='sliderName'>{ ite.userName }</span>
+                                                    <span className='slider-name'>{ ite.userName }</span>
                                                 </div>
                                             )
                                         })

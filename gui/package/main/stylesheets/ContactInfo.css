@@ -1,8 +1,8 @@
-.contactInfoWrapper{
+.contact-info-wrapper{
     width: 100%;
     position: relative;
 }
-.chatContentWrapper{
+.chat-content-wrapper{
     width: 500px;
     height: 500px;
     background-color: #fff;
@@ -19,15 +19,15 @@
     padding: 20px;
     border-bottom: 1px solid #ddd;
 }
-.userName{
+.user-name{
     font-size: 30px;
 }
-.userIcon{
+.user-icon{
     width: 60px;
     height: 60px;
     float: right
 }
-.whiteSpace{
+.white-space{
     display: inline-block;
     width: 30px;
     height: 100%;
@@ -47,7 +47,7 @@
     height: 170px;
     width: 100%
 }
-.buttonStyle{
+.button-style{
     margin: 30px auto;
     width: 150px;
     display: block;

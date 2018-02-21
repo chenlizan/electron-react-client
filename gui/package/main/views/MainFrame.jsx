@@ -35,18 +35,20 @@ export default class MainFrame extends React.Component {
             nowIndex: index
         })
     };
-
+    preventDefault = (e) => {
+        e.stopPropagation();
+    };
     render() {
         const tabItemIcon = [
-            {icon: 'iconfont icon-xiaoxi iconStyle'},
-            {icon: 'iconfont icon-custom-user iconStyle'},
-            {icon: 'iconfont icon-qunzu iconStyle'}
+            {icon: 'iconfont icon-xiaoxi icon-style'},
+            {icon: 'iconfont icon-custom-user icon-style'},
+            {icon: 'iconfont icon-qunzu icon-style'}
         ]
         const {isShowUserInfo, nowIndex, contentComponent} = this.state;
         return (
-            <div className='chatWrapper' id='mainFrame'>
-                <ul className='tabWrapper'>
-                    <li className='tabItem' onClick={this.showUserInfo}>
+            <div className='chat-wrapper' id='mainFrame'>
+                <ul className='tab-wrapper'>
+                    <li className='tab-item' onClick={this.showUserInfo}>
                         <img src={userIcon}/>
                     </li>
                     {
@@ -54,7 +56,7 @@ export default class MainFrame extends React.Component {
                             return (
                                 <li onClick={() => {
                                     this.chooseTabItem(index)
-                                }} className={this.state.nowIndex === index ? 'tabItem tabItemActive' : 'tabItem'}
+                                }} className={this.state.nowIndex === index ? 'tab-item tab-item-active' : 'tab-item'}
                                     key={index}>
                                     <i className={item.icon}></i>
                                 </li>
@@ -62,7 +64,7 @@ export default class MainFrame extends React.Component {
                         })
                     }
                 </ul>
-                <div className='mainFrameRight'>
+                <div className='main-frame-right'>
                     {
                         nowIndex === 0
                             ? <ChatContainer/>
@@ -71,9 +73,9 @@ export default class MainFrame extends React.Component {
                             : <Group/>
                     }
                 </div>
-                <div className='bgWrapper' onClick={this.hideUserInfo}
+                <div className='bg-wrapper' onClick={this.hideUserInfo}
                      style={{display: isShowUserInfo ? 'block' : 'none'}}>
-                    <div className='mainUserInfo'>
+                    <div className='main-user-info' onClick={this.preventDefault}>
                         <UserInfo hideUserInfo={this.hideUserInfo}/>
                     </div>
                 </div>

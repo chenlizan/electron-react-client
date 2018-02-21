@@ -1,53 +1,53 @@
-.chatMessageList{
+.chat-message-list{
     height: 100%;
     overflow-y: hidden;
     border-right: 1px solid #ccc;
 }
 /* 一条消息项 */
-.chatItem{
+.chat-item{
     height: 60px;
     border-bottom: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     cursor: pointer;
 }
-.chatItemLeft{
+.chat-item-left{
     width: 60px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.chatItemRight{
+.chat-item-right{
     flex: 1;
 }
-.chatName{
+.chat-name{
     height: 30px;
     line-height: 30px;
     position: relative;
     font-size: 15px !important;
 }
-.chatTime{
+.chat-time{
     position: absolute;
     right: 10px;
 }
-.chatDetail{
+.chat-detail{
     height: 30px;
     line-height: 15px;
     font-size: 13px;
 }
 /* 搜索 */
-.chatSearchContainer {
+.chat-search-container {
     height: 60px;
     line-height: 60px;
     padding-left: 10px;
     border-bottom: 1px solid #ddd;
 }
-.IconStyle{
+.icon-style{
     font-size: 22px;
     padding-left: 10px;
 }
-.addIcon {
+.add-icon {
     display: inline-block;
     width: 22px;
     height: 22px;

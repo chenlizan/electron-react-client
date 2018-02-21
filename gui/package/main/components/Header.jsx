@@ -15,18 +15,18 @@ class Header extends Component {
     };
     render () {
         return (
-            <div className='allWrap'>
-                <div className='titleWrap'>
+            <div className='all-wrap'>
+                <div className='title-wrap'>
                     <div className='title'>
                         <span>{this.props.title}</span>
                     </div>
                     <div className='icon'>
-                        <i className='iconfont icon-suoxiao Icon' onClick={this.minimize} />
-                        <i className='iconfont icon-close Icon' onClick={this.close} />
+                        <i className='iconfont icon-suoxiao header-icon' onClick={this.minimize} />
+                        <i className='iconfont icon-close header-icon' onClick={this.close} />
                     </div>
                 </div>
-                <div className='Wrap'>
-                    <div className='content'>
+                <div className='header-wrap'>
+                    <div className='header-content'>
                         {this.props.children}
                     </div>
                 </div>
