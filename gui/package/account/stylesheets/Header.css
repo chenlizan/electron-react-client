@@ -17,6 +17,7 @@
     color: #fff;
     margin-left: 5px;
     font-size: 16px;
+    -webkit-app-region: no-drag;
 }
 .user-avatar{
     /* 头像在背景位置居中 */
