@@ -1,4 +1,5 @@
-import {apiHttpRequest} from '../utils/httpRequest'
+import {apiHttpRequest} from '../utils/httpRequest';
+import orm from "../models";
 
 class Account {
     constructor() {

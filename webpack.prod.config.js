@@ -135,7 +135,8 @@ const serverConfig = {
         publicPath: '/'
     },
     externals: {
-        sqlite3: 'sqlite3',
+        sequelize: 'sequelize',
+        sqlite3: 'sqlite3'
     },
     module: {
         rules: [
@@ -176,6 +177,10 @@ const serverConfig = {
         }),
         new CopyWebpackPlugin([{
             from: "templates/package.json",
+            to: "../",
+            force: true
+        }, {
+            from: "templates/index.js",
             to: "../",
             force: true
         }]),
