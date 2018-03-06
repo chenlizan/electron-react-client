@@ -25,8 +25,7 @@ sequelize
         console.error('Unable to connect to the database:', err);
     });
 
-// require('./token').default.bind(null, sequelize)();
-// require('./userInfo').default.bind(null, sequelize)();
+require('./friend').default.bind(null, sequelize)();
 
 sequelize.sync();
 
