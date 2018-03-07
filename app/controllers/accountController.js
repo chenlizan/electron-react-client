@@ -12,7 +12,7 @@ module.exports = {
             return accountModule.login(data)
         }).then(data => {
             return electron_dispatch({action: 'login', data: data, state: true});
-        }).then(data=>{
+        }).then(() => {
             return dataSyncModule.syncFriend();
         }).catch(err => {
             console.log(`error: ${JSON.stringify(err)}`);

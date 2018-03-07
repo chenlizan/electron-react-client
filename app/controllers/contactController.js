@@ -1,20 +1,18 @@
 import promise from "bluebird";
-// import {login, resetPassword} from '../modules/contactModule';
-import {electron_dispatch} from '../dispatchAction'
+import contactModule from '../modules/contactModule';
 
 module.exports = {
 
-    // login: (data) => {
-    //     return new promise((resolve, reject) => {
-    //         return resolve(data);
-    //     }).then(data => {
-    //         return login(data)
-    //     }).then(data => {
-    //         return electron_dispatch({action: 'login', data: data, state: true});
-    //     }).catch(err => {
-    //         console.log(`error: ${JSON.stringify(err)}`);
-    //         return electron_dispatch({action: 'login', data: err, state: false});
-    //     });
-    // }
+    getAllFriend: () => {
+        return new promise((resolve, reject) => {
+            return resolve('true');
+        }).then(data => {
+            return contactModule.getAllFriend(data)
+        }).then(data => {
+            return data;
+        }).catch(err => {
+            console.log(`error: ${JSON.stringify(err)}`);
+        });
+    }
 
 };

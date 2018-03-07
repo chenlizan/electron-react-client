@@ -1,16 +1,23 @@
 import React from 'react';
-import { Icon, Input, Avatar } from 'antd';
-import { Scrollbars } from 'react-custom-scrollbars';
+import {Icon, Input, Avatar} from 'antd';
+import {Scrollbars} from 'react-custom-scrollbars';
+import {getAllFriend} from "../services";
 import '../stylesheets/Slider.css';
 
-const { Search } = Input;
+const {Search} = Input;
 export default class Slider extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             nowIndex: 0
         }
     }
+
+    componentWillMount(){
+        const data = getAllFriend('');
+        console.log(data);
+    }
+
     addFriend = () => {
         console.log('addFriend')
     }
@@ -20,7 +27,8 @@ export default class Slider extends React.Component {
         })
         console.log(current)
     }
-    render () {
+
+    render() {
         const data = [
             {
                 title: '家人',
@@ -46,77 +54,19 @@ export default class Slider extends React.Component {
                         id: '05'
                     }
                 ]
-            },
-            {
-                title: '朋友',
-                list: [
-                    {
-                        userName: '王乐',
-                        id: '06'
-                    },
-                    {
-                        userName: '王乐乐',
-                        id: '07'
-                    },
-                    {
-                        userName: '欧阳林',
-                        id: '08'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '09'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '10'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '11'
-                    }
-                ]
-            },
-            {
-                title: '分组1',
-                list: [
-                    {
-                        userName: '王乐',
-                        id: '12'
-                    },
-                    {
-                        userName: '王乐乐',
-                        id: '13'
-                    },
-                    {
-                        userName: '欧阳林',
-                        id: '14'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '15'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '16'
-                    },
-                    {
-                        userName: '王乐',
-                        id: '17'
-                    }
-                ]
             }
         ];
         const activeStyle = {
             backgroundColor: 'rgba(0, 0, 0, 0.1)'
         }
-        const { nowIndex } = this.state;
+        const {nowIndex} = this.state;
         return (
             <div id='chatContact' className='contact-slider-wrapper'>
                 <div className='search-container'>
                     <Search
                         placeholder="搜索"
                         onSearch={value => console.log(value)}
-                        style={{ width: 225 }}
+                        style={{width: 225}}
                         size="small"
                     />
                     <div className='add-icon'>+</div>
@@ -124,27 +74,20 @@ export default class Slider extends React.Component {
                 <Scrollbars>
                     <div className='slider-item' onClick={this.addFriend} style={{borderBottom: '1px solid #ddd'}}>
                         <div className='icon-wrapper'>
-                            <i style={{fontSize: '34px', color: '#fff'}} className='iconfont icon-custom-user' />
+                            <i style={{fontSize: '34px', color: '#fff'}} className='iconfont icon-custom-user'/>
                         </div>
                         {/* <Avatar shape="square" size="large"><icon style={{fontSize: '34px'}} className='iconfont icon-lianxiren' /></Avatar> */}
                         <span className='slider-name'>新的朋友</span>
                     </div>
                     {
-                        data.map((item, index) => {
+                        data[0].list.map((ite, idx) => {
                             return (
-                                <div className='item-list' key={index}>
-                                    <span className='slider-title'>{ item.title }</span>
-                                    {
-                                        item.list.map((ite, idx) => {
-                                            return (
-                                                <div className='slider-item' style={ nowIndex === ite.id ? activeStyle : null } key={idx} onClick={() => {this.changeCurrent(ite)}}>
-                                                    <Avatar shape="square" size="large">{ ite.userName }</Avatar>
-                                                    <span className='slider-name'>{ ite.userName }</span>
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                    
+                                <div className='slider-item' style={nowIndex === ite.id ? activeStyle : null} key={idx}
+                                     onClick={() => {
+                                         this.changeCurrent(ite)
+                                     }}>
+                                    <Avatar shape="square" size="large">{ite.userName}</Avatar>
+                                    <span className='slider-name'>{ite.userName}</span>
                                 </div>
                             )
                         })

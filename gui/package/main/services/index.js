@@ -1,10 +1,10 @@
 const {remote} = window.require('electron');
-const accountController = remote.app.API.accountController;
+const contactController = remote.app.API.contactController;
 
-export const login = (data) => {
-    accountController.login(data);
-};
+export const getAllFriend = () => {
 
-export const resetPassword = (data) => {
-    accountController.resetPassword(data);
-};
+    return contactController.getAllFriend()
+        .then(data => {
+            return data;
+        });
+}
