@@ -5,7 +5,7 @@ class Contact {
         this.friend = orm.model('friend');
     }
 
-    getAllFriend(data) {
+    getAllFriend() {
         // const userInfo = {userId: data.id};
         return this.friend.findAll();
 

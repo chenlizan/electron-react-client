@@ -14,7 +14,7 @@ export default class Slider extends React.Component {
     }
 
     componentWillMount(){
-        const data = getAllFriend('');
+        const data = getAllFriend();
         console.log(data);
     }
 
