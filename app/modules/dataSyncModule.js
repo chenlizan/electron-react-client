@@ -25,7 +25,13 @@ class DateSync {
                         note: item.note
                     });
                 });
-                return this.friend.bulkCreate(friendArr);
+                return friendArr;
+            }).then(friendArr => {
+                return _this.friend.destroy({where: {}}).then(data => {
+                    return friendArr;
+                });
+            }).then(friendArr => {
+                return _this.friend.bulkCreate(friendArr);
             });
     }
 }

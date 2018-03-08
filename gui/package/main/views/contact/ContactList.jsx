@@ -1,65 +1,43 @@
 import React from 'react';
 import {Icon, Input, Avatar} from 'antd';
 import {Scrollbars} from 'react-custom-scrollbars';
-import {getAllFriend} from "../services";
-import '../stylesheets/Slider.css';
+import {getAllFriend} from "../../services/index";
+import '../../stylesheets/Slider.css';
 
 const {Search} = Input;
-export default class Slider extends React.Component {
+export default class ContactList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            nowIndex: 0
+            nowIndex: 0,
+            data: []
         }
     }
 
-    componentWillMount(){
-        const data = getAllFriend();
-        console.log(data);
+    componentWillMount() {
+        getAllFriend()
+            .then(data => {
+                this.setState({data: data})
+            })
     }
 
     addFriend = () => {
         console.log('addFriend')
-    }
-    changeCurrent = (current) => {
+    };
+
+    changeCurrent = (e) => {
+        const {id} = e.currentTarget;
         this.setState({
-            nowIndex: current.id
-        })
-        console.log(current)
-    }
+            nowIndex: id
+        });
+        console.log(id);
+    };
 
     render() {
-        const data = [
-            {
-                title: '家人',
-                list: [
-                    {
-                        userName: '张三',
-                        id: '01'
-                    },
-                    {
-                        userName: '张四',
-                        id: '02'
-                    },
-                    {
-                        userName: '张五',
-                        id: '03'
-                    },
-                    {
-                        userName: '王佳',
-                        id: '04'
-                    },
-                    {
-                        userName: '王佳佳',
-                        id: '05'
-                    }
-                ]
-            }
-        ];
         const activeStyle = {
             backgroundColor: 'rgba(0, 0, 0, 0.1)'
-        }
-        const {nowIndex} = this.state;
+        };
+        const {nowIndex, data} = this.state;
         return (
             <div id='chatContact' className='contact-slider-wrapper'>
                 <div className='search-container'>
@@ -80,14 +58,12 @@ export default class Slider extends React.Component {
                         <span className='slider-name'>新的朋友</span>
                     </div>
                     {
-                        data[0].list.map((ite, idx) => {
+                        data.map((ite, idx) => {
                             return (
-                                <div className='slider-item' style={nowIndex === ite.id ? activeStyle : null} key={idx}
-                                     onClick={() => {
-                                         this.changeCurrent(ite)
-                                     }}>
-                                    <Avatar shape="square" size="large">{ite.userName}</Avatar>
-                                    <span className='slider-name'>{ite.userName}</span>
+                                <div className='slider-item' style={nowIndex === ite.id ? activeStyle : null}
+                                     id={ite.id} key={idx} onClick={this.changeCurrent}>
+                                    <Avatar shape="square" size="large">{ite.note || ite.nickName}</Avatar>
+                                    <span className='slider-name'>{ite.note || ite.nickName}</span>
                                 </div>
                             )
                         })

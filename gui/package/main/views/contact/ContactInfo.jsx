@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
-import '../stylesheets/ContactInfo.css';
-import userIcon from '../assets/images/user_icon.png';
+import '../../stylesheets/ContactInfo.css';
+import userIcon from '../../assets/images/user_icon.png';
 
 export default class ContactInfo extends React.Component {
     constructor (props) {

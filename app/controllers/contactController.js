@@ -5,13 +5,9 @@ module.exports = {
 
     getAllFriend: () => {
         return contactModule.getAllFriend()
-            .then(data => {
-                return data;
-            })
             .catch(err => {
                 console.log(`error: ${JSON.stringify(err)}`);
             });
     }
 
-}
-;
+};

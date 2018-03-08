@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from './Slider';
+import Slider from './ContactList';
 import ContactInfo from './ContactInfo';
 
 export default class Contact extends React.Component {

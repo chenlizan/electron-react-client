@@ -1,6 +1,6 @@
 import React from 'react';
 import ChatContainer from '../chat/ChatContainer.jsx';
-import Contact from '../contact/Contact.jsx';
+import Contact from './contact/Contact.jsx';
 import Group from '../group/Group.jsx';
 import UserInfo from '../user/UserInfo.jsx';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
