@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config",
     "electron": "cross-env NODE_ENV=development electron .",
-    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist chat-client --platform=win32 --electronVersion=1.7.12 --overwrite && rimraf -rf dist",
+    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist chat-client --icon=app/resources/appIcon.ico --platform=win32 --electronVersion=1.7.12 --overwrite && rimraf -rf dist",
     "inst": "npm install cross-env && cross-env npm_config_target=1.7.12 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install"
   },
   "repository": {
