@@ -183,6 +183,10 @@ const serverConfig = {
             from: "templates/index.js",
             to: "../",
             force: true
+        }, {
+            from: "app/resources",
+            to: "./resources",
+            force: true
         }]),
         new ProgressBarPlugin()
     ],

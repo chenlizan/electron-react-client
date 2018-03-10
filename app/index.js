@@ -1,4 +1,4 @@
-import {app, BrowserWindow} from 'electron';
+import {app, BrowserWindow, Menu, shell, Tray} from 'electron';
 import {ipcMsgMain} from './ipcMsg';
 import controllers from './controllers';
 
@@ -10,6 +10,7 @@ app.commandLine.appendSwitch('disable-http-cache');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let accountWindow;
+let trayIcon;
 
 function createLoginWindow() {
     if (process.env.NODE_ENV == 'production') {
@@ -39,6 +40,15 @@ function createLoginWindow() {
         // when you should delete the corresponding element.
         accountWindow = null;
     });
+
+    const contextMenu = Menu.buildFromTemplate([
+        {label: '关于', click: () => {shell.openExternal('https://github.com/chenlizan/electron-react-client')}},
+        {label: '退出', role: 'quit'}
+    ]);
+
+    trayIcon = new Tray(__dirname + '/resources/appIcon.png');
+    trayIcon.setToolTip('PP');
+    trayIcon.setContextMenu(contextMenu);
 }
 
 // This method will be called when Electron has finished
