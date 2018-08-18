@@ -36,8 +36,8 @@ const clientConfig = {
     entry: webpackConfig.entry,
     output: {
         path: path.resolve(__dirname, 'dist'),
+        chunkFilename: 'static/js/chunk.[chunkhash:5].js',
         filename: 'static/js/[name].js',
-        chunkFilename: 'static/js/chunk.[id].js',
         publicPath: './'
     },
     module: {
@@ -67,23 +67,54 @@ const clientConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015', 'react', 'stage-0'],
-                        plugins: ['add-module-exports',
-                            'transform-object-assign',
-                            'syntax-dynamic-import',
-                            ['import', {
-                                'libraryName': 'antd',
-                                'style': 'css'
-                            }]
+                        presets: [['env', {'targets': {'electron': '2.0'}}], 'es2015', 'react', 'stage-0'],
+                        plugins: [
+                            ['import', [
+                                {'libraryName': 'antd', 'style': 'css'},
+                                {'libraryName': 'antd-mobile', 'style': 'css'}
+                            ]],
                         ]
                     }
                 }
             },
             {
                 test: /\.css$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        }
+                    }]
+                })
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            namedExport: true,
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                        }
+                    }, {
+                        loader: "less-loader"
+                    }]
+                })
+            },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader']
                 })
             }
         ]
@@ -93,26 +124,15 @@ const clientConfig = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
+            "process.env": {NODE_ENV: JSON.stringify("production")}
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             uglifyOptions: {
-                ecma: 8,
-                compress: {
-                    warnings: false,
-                    comparisons: false
-                },
-                output: {
-                    ascii_only: true,
-                    comments: false
-                },
-                warnings: false
+                ecma: 8
             }
         }),
-        new ExtractTextPlugin("static/css/[name].css"),
+        new ExtractTextPlugin("static/css/[contenthash:5].css"),
         ...webpackConfig.plugins,
         new ProgressBarPlugin()
     ],
@@ -145,8 +165,7 @@ const serverConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015', 'stage-0'],
-                        plugins: ['transform-object-assign']
+                        presets: [['env', {'targets': {'electron': '2.0'}}], 'es2015', 'stage-0']
                     }
                 }
             }
@@ -157,22 +176,11 @@ const serverConfig = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
+            "process.env": {NODE_ENV: JSON.stringify("production")}
         }),
         new webpack.optimize.UglifyJsPlugin({
             uglifyOptions: {
-                ecma: 8,
-                compress: {
-                    warnings: false,
-                    comparisons: false
-                },
-                output: {
-                    ascii_only: true,
-                    comments: false
-                },
-                warnings: false
+                ecma: 8
             }
         }),
         new CopyWebpackPlugin([{

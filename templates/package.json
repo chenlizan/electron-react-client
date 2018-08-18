@@ -4,14 +4,10 @@
   "description": "A Electron desktop application. Built with Electron and React",
   "main": "index.js",
   "scripts": {
-    "inst": "cross-env npm_config_target=1.7.12 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install"
+    "inst": "cross-env npm_config_target=2.0.7 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install"
   },
   "author": "chenlizan",
   "contributors": [
-    {
-      "name": "guoqingpingls",
-      "url": "https://github.com/guoqingpingls"
-    },
     {
       "name": "cicizss",
       "url": "https://github.com/cicizss"
@@ -19,7 +15,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "sequelize": "^4.33.4",
-    "sqlite3": "^3.1.13"
+    "sequelize": "^4.0.0",
+    "sqlite3": "^4.0.0"
   }
 }

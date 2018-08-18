@@ -1,7 +1,7 @@
 require("babel-polyfill");
 
 require('babel-register')({
-    presets: ['es2015', 'stage-0']
+    presets: [['env', {'targets': {'electron': '2.0'}}], 'stage-0']
 });
 
 require('./app');
