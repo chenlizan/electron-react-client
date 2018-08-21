@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Avatar} from 'antd';
+import {Avatar,Icon} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import styles from '../stylesheets/Header.css';
-import {} from  '../../../assets/'
 import bgImage from '../asset/images/bg-image.jpg';
 import Login from "../views/Login";
 
@@ -28,8 +27,9 @@ export default class Header extends React.Component {
             <div className={styles['header-wrapper']}>
                 <img src={bgImage} className={styles['bg-image']}/>
                 <div className={styles['operate-icon']}>
-                    <i className='iconfont icon-suoxiao icon' onClick={this.minimize}/>
-                    <i className='iconfont icon-close icon' onClick={this.close}/>
+                    <Icon type="minus" style={{ fontSize: 24 }} onClick={this.minimize}/>
+                    <Icon type="close" style={{ fontSize: 24 }} onClick={this.close}/>
+                    <Icon type="paint" style={{ fontSize: 24 }} />
                 </div>
                 {isShowAvatar ? <Avatar size='large' className={styles['user-avatar']}>user</Avatar> : null}
             </div>
