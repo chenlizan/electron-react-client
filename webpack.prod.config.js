@@ -79,7 +79,7 @@ const clientConfig = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
+                exclude: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [{
@@ -93,8 +93,16 @@ const clientConfig = {
                 })
             },
             {
+                test: /\.css$/,
+                include: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader']
+                })
+            },
+            {
                 test: /\.less$/,
-                exclude: /node_modules/,
+                exclude: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [{
@@ -110,11 +118,15 @@ const clientConfig = {
                 })
             },
             {
-                test: /\.css$/,
-                include: /node_modules/,
+                test: /\.less/,
+                include: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "less-loader"
+                    }]
                 })
             }
         ]

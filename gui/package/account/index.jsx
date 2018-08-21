@@ -4,8 +4,7 @@ import {Provider} from 'react-redux';
 import {routes} from './routes/index'
 import {configureStore} from './store';
 import './stylesheets/index.css';
-// import '../../assets/style/iconfont.css'
-
+import "../../assets/style/index.less";
 const store = configureStore();
 
 ReactDOM.render(
