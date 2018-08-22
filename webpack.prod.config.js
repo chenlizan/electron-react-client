@@ -85,6 +85,7 @@ const clientConfig = {
                     use: [{
                         loader: 'css-loader',
                         options: {
+                            minimize: true,
                             modules: true,
                             namedExport: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
@@ -97,7 +98,12 @@ const clientConfig = {
                 include: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader']
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
+                    }]
                 })
             },
             {
@@ -108,6 +114,7 @@ const clientConfig = {
                     use: [{
                         loader: 'css-loader',
                         options: {
+                            minimize: true,
                             modules: true,
                             namedExport: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
@@ -123,7 +130,10 @@ const clientConfig = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [{
-                        loader: "css-loader"
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
                     }, {
                         loader: "less-loader"
                     }]
