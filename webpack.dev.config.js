@@ -18,7 +18,7 @@ const getEntries = (globPath) => {
         entries[name] = './' + filepath;
     });
     return entries;
-}
+};
 
 const entries = getEntries('gui/package/*/index.jsx');
 
@@ -30,7 +30,7 @@ Object.keys(entries).forEach(function (name) {
         chunks: [name]
     });
     webpackConfig.plugins.push(plugin);
-})
+});
 
 const clientConfig = {
     devServer: {
@@ -72,7 +72,7 @@ const clientConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [['env', {'targets': {'electron': '2.0'}}], 'react', 'stage-0'],
+                        presets: [['env', {'targets': {'electron': '3.0'}}], 'react', 'stage-0'],
                         plugins: [
                             ['import', [
                                 {'libraryName': 'antd', 'style': 'css'},
@@ -109,7 +109,7 @@ const clientConfig = {
                 test: /\.less$/,
                 exclude: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
+                    fallback: 'style-loader',
                     use: [{
                         loader: 'css-loader',
                         options: {
@@ -117,9 +117,7 @@ const clientConfig = {
                             namedExport: true,
                             localIdentName: '[path][name]__[local]--[hash:base64:5]'
                         }
-                    }, {
-                        loader: "less-loader"
-                    }]
+                    }, 'less-loader']
                 })
             },
             {
@@ -127,11 +125,7 @@ const clientConfig = {
                 include: [path.resolve(__dirname, 'node_modules'), path.resolve(__dirname, 'gui/assets')],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "less-loader"
-                    }]
+                    use: ['css-loader', 'less-loader']
                 })
             }
         ]
@@ -141,14 +135,13 @@ const clientConfig = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {NODE_ENV: JSON.stringify("development")}
+            'process.env': {NODE_ENV: JSON.stringify('development')}
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin("static/css/[contenthash:5].css"),
+        new ExtractTextPlugin('static/css/[contenthash:5].css'),
         ...webpackConfig.plugins,
         new ProgressBarPlugin(),
         new WatchMissingNodeModulesPlugin(path.resolve('node_modules'))
-
     ],
     node: {
         dgram: 'empty',
