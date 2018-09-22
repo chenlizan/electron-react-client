@@ -9,10 +9,3 @@ A Electron desktop application. Built with Electron and React
 react调用electron方法（异步或同步）用const {remote} = window.require('electron'); remote.app.API.[...]
 
 electron通过redux（dispatch action）回应react所调用的异步方法
-
-
-服务端支持项目
-
-https://github.com/chenlizan/core
-
-
