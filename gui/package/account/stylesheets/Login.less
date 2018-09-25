@@ -1,0 +1,143 @@
+
+.login-upper {
+  min-height: 182px;
+  background-color: #108ee9;
+  border-radius: 4px;
+  -webkit-app-region: drag;
+}
+
+.operate-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-app-region: no-drag;
+
+  &-close {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      background-color: red;
+    }
+    & i {
+      margin: 10px;
+      & svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+
+  &-minus {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      background-color: black;
+      z-index: -5;
+      opacity: 0.1;
+    }
+    & i {
+      margin: 10px;
+      & svg {
+        width: 11px;
+        height: 11px;
+      }
+    }
+  }
+}
+
+.login-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.login-form {
+  max-width: 220px;
+  margin: 20px auto;
+  /* position: absolute; */
+  /* top: 10%;
+  left: 10%; */
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.other-operate {
+  max-width: 220px;
+  margin: 0 auto;
+  height: 30px;
+  line-height: 30px;
+  color: #108ee9;
+}
+
+.other-operate span {
+  cursor: pointer;
+}
+
+.right {
+  float: right;
+}
+
+/* 第二种选择 */
+.input-wrapper {
+  width: 80%;
+  display: flex;
+  margin: 20px auto 10px auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.input-icon {
+  font-size: 24px;
+  vertical-align: middle;
+  color: #aaa;
+}
+
+.input-content {
+  flex: 1;
+  border: none;
+}
+
+.input-content:focus {
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+}
+
+.input-btn {
+  width: 80%;
+
+}
+
+.footer-operate {
+  width: 80%;
+  margin: 3px auto;
+  text-align: left;
+
+}
+
+.footer-operate span {
+  color: #108ee9;
+  cursor: pointer;
+}
+
+.error {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  color: #f00;
+  font-size: 12px;
+}

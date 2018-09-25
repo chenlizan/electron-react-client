@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Avatar,Icon} from 'antd';
-import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
-import styles from '../stylesheets/Header.css';
-import bgImage from '../asset/images/bg-image.jpg';
-import Login from "../views/Login";
+import {Avatar, Icon} from 'antd';
+import {ipcMsgRenderer, windowID} from '../utils/ipcMsg';
+import styles from '../assets/stylesheets/Header.less';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -25,11 +23,9 @@ export default class Header extends React.Component {
         const {isShowAvatar} = this.props;
         return (
             <div className={styles['header-wrapper']}>
-                <img src={bgImage} className={styles['bg-image']}/>
                 <div className={styles['operate-icon']}>
-                    <Icon type="minus" style={{ fontSize: 24 }} onClick={this.minimize}/>
-                    <Icon type="close" style={{ fontSize: 24 }} onClick={this.close}/>
-                    <Icon type="paint" style={{ fontSize: 24 }} />
+                    <Icon type="minus" style={{fontSize: 24}} onClick={this.minimize}/>
+                    <Icon type="close" style={{fontSize: 24}} onClick={this.close}/>
                 </div>
                 {isShowAvatar ? <Avatar size='large' className={styles['user-avatar']}>user</Avatar> : null}
             </div>

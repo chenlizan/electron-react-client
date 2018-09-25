@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Input, Button} from 'antd';
-import Header from '../components/Header';
+import {Button, Icon, Input} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
+import IconFont from '../../../components/IconFont';
 import {login} from "../services";
-import '../stylesheets/Login.css';
+import styles from '../stylesheets/Login.less';
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -71,7 +71,16 @@ export default class Login extends React.Component {
         const {isShowErrorTip} = this.state;
         return (
             <div className='login-wrapper' id='login'>
-                <Header isShowAvatar={true}/>
+                <div className={styles["login-upper"]}>
+                    <div className={styles['operate-icon']}>
+                        <span className={styles["operate-icon-minus"]}>
+                           <IconFont type="electron-minus" onClick={this.minimize}/>
+                        </span>
+                        <span className={styles["operate-icon-close"]}>
+                           <IconFont type="electron-close" onClick={this.minimize}/>
+                        </span>
+                    </div>
+                </div>
                 <div className='input-wrapper'>
                     <i className='iconfont icon-custom-user input-icon'/>
                     <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput}/>

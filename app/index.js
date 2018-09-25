@@ -16,15 +16,15 @@ function createLoginWindow() {
     if (process.env.NODE_ENV == 'production') {
         // Create the browser window.
         accountWindow = new BrowserWindow({
-            width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
-            autoHideMenuBar: true, frame: false, resizable: false, show: false
+            width: 430, height: 330, maxWidth: 430, maxHeight: 330, title: 'account',
+            autoHideMenuBar: true, frame: false, resizable: false, show: false ,transparent :true
         });
         // and load the account.html of the app.
         accountWindow.loadURL(`file://${__dirname}/../account.html#/login`);
     } else {
         accountWindow = new BrowserWindow({
-            width: 315, height: 610, minHeight: 610, minWidth: 315, title: 'account',
-            autoHideMenuBar: false, frame: true, resizable: true, show: false
+            width: 430, height: 330, title: 'account',
+            autoHideMenuBar: false, frame: true, resizable: false, show: false,transparent :true
         });
         accountWindow.loadURL('http://localhost:3000/account.html#/login');
         // Open the DevTools.
@@ -42,7 +42,11 @@ function createLoginWindow() {
     });
 
     const contextMenu = Menu.buildFromTemplate([
-        {label: '关于', click: () => {shell.openExternal('https://github.com/chenlizan/electron-react-client')}},
+        {
+            label: '关于', click: () => {
+                shell.openExternal('https://github.com/chenlizan/electron-react-client')
+            }
+        },
         {label: '退出', role: 'quit'}
     ]);
 
