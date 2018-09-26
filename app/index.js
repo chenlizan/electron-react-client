@@ -16,6 +16,7 @@ function createLoginWindow() {
     if (process.env.NODE_ENV == 'production') {
         // Create the browser window.
         accountWindow = new BrowserWindow({
+            backgroundColor:'#0FFF',
             width: 430, height: 330, maxWidth: 430, maxHeight: 330, title: 'account',
             autoHideMenuBar: true, frame: false, resizable: false, show: false ,transparent :true
         });
@@ -24,7 +25,8 @@ function createLoginWindow() {
     } else {
         accountWindow = new BrowserWindow({
             width: 430, height: 330, title: 'account',
-            autoHideMenuBar: false, frame: true, resizable: false, show: false,transparent :true
+            autoHideMenuBar: true, frame: true, resizable: true, show: false,transparent :true,
+            backgroundColor:'#0FFF'
         });
         accountWindow.loadURL('http://localhost:3000/account.html#/login');
         // Open the DevTools.

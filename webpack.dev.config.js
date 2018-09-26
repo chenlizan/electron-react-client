@@ -131,6 +131,9 @@ const clientConfig = {
         ]
     },
     resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'gui')
+        },
         extensions: ['.js', '.json', '.jsx']
     },
     plugins: [

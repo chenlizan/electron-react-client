@@ -36,14 +36,15 @@ export default class Login extends React.Component {
         login(loginValue);
     };
 
-    //可以自定义最小化和关闭逻辑
-    // minimize = () => {
-    //     console.log('minimize window');
-    // };
-    //
-    // close = () => {
-    //     console.log('close window');
-    // };
+    minimize = () => {
+        const {minimize} = this.props;
+        minimize ? minimize : ipcMsgRenderer.minWindow(windowID.account);
+    };
+
+    close = () => {
+        const {close} = this.props;
+        close ? close : ipcMsgRenderer.closeWindow(windowID.account);
+    };
 
     getInput = (e) => {
         const {id, value} = e.currentTarget;
@@ -70,14 +71,14 @@ export default class Login extends React.Component {
     render() {
         const {isShowErrorTip} = this.state;
         return (
-            <div className='login-wrapper' id='login'>
+            <div id='login'>
                 <div className={styles["login-upper"]}>
-                    <div className={styles['operate-icon']}>
-                        <span className={styles["operate-icon-minus"]}>
+                    <div className={styles['login-upper-operate-icon']}>
+                        <span className={styles["login-upper-operate-icon-minus"]}>
                            <IconFont type="electron-minus" onClick={this.minimize}/>
                         </span>
-                        <span className={styles["operate-icon-close"]}>
-                           <IconFont type="electron-close" onClick={this.minimize}/>
+                        <span className={styles["login-upper-operate-icon-close"]}>
+                           <IconFont type="electron-close" onClick={this.close}/>
                         </span>
                     </div>
                 </div>

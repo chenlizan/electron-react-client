@@ -191,6 +191,9 @@ const serverConfig = {
         ]
     },
     resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'gui')
+        },
         extensions: ['.js', '.json']
     },
     plugins: [
