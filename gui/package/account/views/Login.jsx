@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Icon, Input} from 'antd';
+import {Button, Icon, Input, Select} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import IconFont from '../../../components/IconFont';
+import InputGroupLogin from '../../../components/InputGroupLogin';
 import {login} from "../services";
 import styles from '../stylesheets/Login.less';
+
+const InputGroup = Input.Group;
 
 export default class Login extends React.Component {
     constructor(props) {
@@ -71,36 +74,23 @@ export default class Login extends React.Component {
     render() {
         const {isShowErrorTip} = this.state;
         return (
-            <div id='login'>
-                <div className={styles["login-upper"]}>
+            <div className={styles['login']}>
+                <div className={styles['login-upper']}>
                     <div className={styles['login-upper-operate-icon']}>
-                        <span className={styles["login-upper-operate-icon-minus"]}>
+                        <span className={styles['login-upper-operate-icon-setup']}>
+                           <IconFont type="electron-setup"/>
+                        </span>
+                        <span className={styles['login-upper-operate-icon-minus']}>
                            <IconFont type="electron-minus" onClick={this.minimize}/>
                         </span>
-                        <span className={styles["login-upper-operate-icon-close"]}>
+                        <span className={styles['login-upper-operate-icon-close']}>
                            <IconFont type="electron-close" onClick={this.close}/>
                         </span>
                     </div>
                 </div>
-                <div className='input-wrapper'>
-                    <i className='iconfont icon-custom-user input-icon'/>
-                    <Input className='input-content' id='username' placeholder="请输入用户名" onBlur={this.getInput}/>
-                </div>
-                <div className='input-wrapper'>
-                    <i className='iconfont icon-password input-icon'/>
-                    <Input className='input-content' id='password' placeholder="请输入密码" type="password"
-                           onBlur={this.getInput}/>
-                </div>
-                {
-                    isShowErrorTip
-                        ? <div className='error'>输入的用户名或密码错误</div>
-                        : null
-                }
-                <div className='footer'>
-                    <Button type="primary" onClick={this.handleSubmit} className='input-btn'>登录</Button>
-                    <div className='footer-operate'>
-                        <span onClick={this.toRegistry}>注册</span>
-                        <span className='right' onClick={this.forgetPsw}>忘记密码</span>
+                <div className={styles['login-lower']}>
+                    <div style={{textAlign: 'center', paddingTop: 14}}>
+                        <InputGroupLogin/>
                     </div>
                 </div>
             </div>

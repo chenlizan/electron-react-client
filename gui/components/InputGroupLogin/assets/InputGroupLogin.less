@@ -1,0 +1,45 @@
+@PrefixCls: InputGroupLogin;
+@InputHeight: 32px;
+@InputWidth: 212px;
+
+.@{PrefixCls} {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 0;
+  width: @InputWidth;
+
+  &-Account {
+    border: 1px solid gainsboro;
+    border-radius: 4px 4px 0 0;
+    height: @InputHeight;
+
+    &:hover {
+      border-color: dodgerblue;
+      margin-bottom: 1px;
+    }
+
+    & > input {
+      height: @InputHeight - 2;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &-Password {
+    border: 1px solid gainsboro;
+    border-radius: 0 0 4px 4px;
+    height: @InputHeight;
+    margin-top: -1px;
+
+    &:hover {
+      border-color: dodgerblue;
+    }
+
+    & > input {
+      height: @InputHeight - 2;
+      border: none;
+      outline: none;
+    }
+  }
+
+}

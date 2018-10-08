@@ -72,7 +72,7 @@ const clientConfig = {
                             ['import', [
                                 {'libraryName': 'antd', 'style': 'css'},
                                 {'libraryName': 'antd-mobile', 'style': 'css'}
-                            ]],
+                            ]], 'lodash', 'transform-decorators-legacy'
                         ]
                     }
                 }

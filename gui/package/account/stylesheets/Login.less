@@ -1,14 +1,17 @@
 .login {
 
+  margin: 0 auto;
+  width: 470px;
+
   &-upper {
-    min-height: 182px;
+    height: 199px;
     background-color: #108ee9;
-    border-radius: 4px;
+    border-radius: 4px 4px 0 0;
     -webkit-app-region: drag;
     -webkit-user-select: none;
 
     &-operate-icon {
-      position: absolute;
+      text-align: right;
       top: 0;
       right: 0;
       -webkit-app-region: no-drag;
@@ -20,6 +23,7 @@
 
         &:hover {
           background-color: red;
+          border-top-right-radius: 4px;
         }
 
         & i {
@@ -50,7 +54,34 @@
           }
         }
       }
+
+      &-setup {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        & i {
+          margin: 10px;
+
+          & svg {
+            width: 11px;
+            height: 11px;
+          }
+        }
+      }
+
     }
+  }
+
+  &-lower {
+    height: 163px;
+    background-color: whitesmoke;
+    border-radius: 0 0 4px 4px;
+    -webkit-user-select: none;
   }
 }
 

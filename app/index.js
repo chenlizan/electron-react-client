@@ -16,17 +16,15 @@ function createLoginWindow() {
     if (process.env.NODE_ENV == 'production') {
         // Create the browser window.
         accountWindow = new BrowserWindow({
-            backgroundColor:'#0FFF',
-            width: 430, height: 330, maxWidth: 430, maxHeight: 330, title: 'account',
+            width: 470, height: 362, title: 'account',
             autoHideMenuBar: true, frame: false, resizable: false, show: false ,transparent :true
         });
         // and load the account.html of the app.
         accountWindow.loadURL(`file://${__dirname}/../account.html#/login`);
     } else {
         accountWindow = new BrowserWindow({
-            width: 430, height: 330, title: 'account',
-            autoHideMenuBar: true, frame: true, resizable: true, show: false,transparent :true,
-            backgroundColor:'#0FFF'
+            width: 470, height: 362, title: 'account',
+            autoHideMenuBar: true, frame: true, resizable: false, show: false,transparent :true,
         });
         accountWindow.loadURL('http://localhost:3000/account.html#/login');
         // Open the DevTools.
