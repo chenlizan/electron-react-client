@@ -166,10 +166,10 @@ const clientConfig = {
 
 const serverConfig = {
     entry: {
-        main: path.resolve(__dirname, 'app/index.js')
+        index: path.resolve(__dirname, 'app/index.js')
     },
     output: {
-        path: path.resolve(__dirname, 'dist/app'),
+        path: path.resolve(__dirname, 'dist/main'),
         filename: '[name].js',
         publicPath: '/'
     },
@@ -184,7 +184,8 @@ const serverConfig = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [['env', {'targets': {'electron': '3.0'}}], 'es2015', 'stage-0']
+                        presets: [['env', {'targets': {'electron': '3.0'}}], 'es2015', 'stage-0'],
+                        plugins: ['lodash']
                     }
                 }
             }
