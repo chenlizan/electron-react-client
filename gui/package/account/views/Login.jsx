@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Icon, Input, Select} from 'antd';
+import {Button, Input, Select} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import IconFont from '../../../components/IconFont';
 import InputGroupLogin from '../../../components/InputGroupLogin';
