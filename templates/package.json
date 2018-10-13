@@ -16,6 +16,6 @@
   "license": "MIT",
   "dependencies": {
     "sequelize": "^4.0.0",
-    "sqlite3": "^4.0.0"
+    "sqlite3": "^3.0.0"
   }
 }
