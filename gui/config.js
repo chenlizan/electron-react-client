@@ -1,3 +1,3 @@
 export default {
-    iconfont: 'https://at.alicdn.com/t/font_801178_fm16swj7ce.js'
+    iconfont: '//at.alicdn.com/t/font_801178_57lnqn8gh8t.js'
 }

@@ -5,33 +5,56 @@
 .@{PrefixCls} {
   box-sizing: border-box;
   display: inline-block;
-  border: 0;
   width: @InputWidth;
+  border: 0;
 
   &-Account {
+    width: 100%;
+    height: @InputHeight;
     border: 1px solid gainsboro;
     border-radius: 4px 4px 0 0;
-    height: @InputHeight;
 
     &:hover {
       border-color: dodgerblue;
     }
 
     & > input {
-      width: 100%;
+      vertical-align: top;
+      width: 85%;
       height: 100%;
       padding-left: 6px;
       border: none;
-      border-radius: 4px 4px 0 0;
+      border-radius: 4px 0 0 0;
       outline: none;
+    }
+
+    & > i {
+      vertical-align: top;
+      display: inline-block;
+      width: 15%;
+      height: 100%;
+      color: darkgrey;
+      border: none;
+      background-color: white;
+      border-radius: 0 4px 0 0;
+
+      & svg {
+        height: 100%;
+      }
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.8);
+      }
     }
   }
 
   &-Password {
-    border: 1px solid gainsboro;
-    border-radius: 0 0 4px 4px;
+    display: inline-block;
+    width: 100%;
     height: @InputHeight;
     margin-top: -1px;
+    border: 1px solid gainsboro;
+    border-radius: 0 0 4px 4px;
     border-top-color: rgba(220, 220, 220, 0);
 
     &:hover {
