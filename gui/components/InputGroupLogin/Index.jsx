@@ -4,7 +4,6 @@ import InputAccount from './InputAccount';
 import InputPassword from './InputPassword';
 import styles from './assets/InputGroupLogin.less';
 
-
 export default class Index extends React.Component {
 
     render(){

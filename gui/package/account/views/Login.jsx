@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Input, Select} from 'antd';
+import {Button, Input} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import IconFont from '../../../components/IconFont';
 import InputGroupLogin from '../../../components/InputGroupLogin';
@@ -90,7 +90,12 @@ export default class Login extends React.Component {
                 </div>
                 <div className={styles['login-lower']}>
                     <div style={{textAlign: 'center', paddingTop: 14}}>
-                        <InputGroupLogin/>
+                        <div className={styles['login-lower-input-group-login']}>
+                            <InputGroupLogin/>
+                        </div>
+                        <div>
+                            <Button className={styles['login-lower-button']} type="primary">登&nbsp;&nbsp;录</Button>
+                        </div>
                     </div>
                 </div>
             </div>
