@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config",
     "electron": "cross-env NODE_ENV=development electron.cmd .",
-    "preinstall": "npm install cross-env && cross-env npm_config_target=3.0.0 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install sqlite3",
-    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist chat-client --icon=app/resources/appIcon.ico --platform=win32 --electronVersion=3.0.0 --asar --overwrite && rimraf -rf dist"
+    "postinstall": "npm install cross-env && cross-env npm_config_target=3.1.1 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install sqlite3",
+    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist chat-client --icon=app/resources/appIcon.ico --platform=win32 --electronVersion=3.1.17   --asar --overwrite && rimraf -rf dist"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
     "css-loader": "^0.28.11",
     "electron": "^3.0.10",
     "electron-packager": "^12.0.0",
+    "electron-rebuild": "^1.8.2",
     "electron-redux": "^1.0.0",
     "error-status-helper": "^2.0.0",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -75,9 +76,10 @@
     "redux-actions": "^2.6.4",
     "request": "^2.0.0",
     "sequelize": "^4.41.2",
-    "sqlite3": "^4.0.4",
+    "sqlite3": "^4.0.6",
     "style-loader": "^0.23.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.0.0"
-  }
+  },
+  "dependencies": {}
 }
