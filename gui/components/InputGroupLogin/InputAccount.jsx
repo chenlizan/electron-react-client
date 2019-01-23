@@ -20,7 +20,7 @@ export default class InputAccount extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            selectedKeys: []
+            selectedKeys: ["1"]
         }
     }
 
@@ -39,17 +39,36 @@ export default class InputAccount extends React.PureComponent {
             return 'default';
         else
             return 'small';
-    }
+    };
 
     renderMenu = () => {
+        const {selectedKeys} = this.state;
         return (
-            <Menu className={styles['InputGroupLogin-Account-Menu']} selectedKeys={this.state.selectedKeys}>
-                <MenuItem key="1" onMouseEnter={this.handleOnMouseEnter}><Avatar size={this.handleSize("1")}
-                                                                                 src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></MenuItem>
-                <MenuItem key="2" onMouseEnter={this.handleOnMouseEnter}><Avatar size={this.handleSize("2")}
-                                                                                 src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></MenuItem>
-                <MenuItem key="3" onMouseEnter={this.handleOnMouseEnter}><Avatar size={this.handleSize("3")}
-                                                                                 src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/></MenuItem>
+            <Menu className={styles['InputGroupLogin-Account-Menu']} selectedKeys={selectedKeys}>
+                <MenuItem key="1" onMouseEnter={this.handleOnMouseEnter}>
+                    <Avatar size={this.handleSize("1")}
+                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                        {selectedKeys[0] === "1" ? <span style={{display: 'block'}}>陈明亮</span> : null}
+                        <span style={{display: 'block'}}>903949</span>
+                    </div>
+                </MenuItem>
+                <MenuItem key="2" onMouseEnter={this.handleOnMouseEnter}>
+                    <Avatar size={this.handleSize("2")}
+                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                        {selectedKeys[0] === "2" ? <span style={{display: 'block'}}>陈明亮</span> : null}
+                        <span style={{display: 'block'}}>903949</span>
+                    </div>
+                </MenuItem>
+                <MenuItem key="3" onMouseEnter={this.handleOnMouseEnter}>
+                    <Avatar size={this.handleSize("3")}
+                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                        {selectedKeys[0] === "3" ? <span style={{display: 'block'}}>陈明亮</span> : null}
+                        <span style={{display: 'block'}}>903949</span>
+                    </div>
+                </MenuItem>
             </Menu>
         );
     }

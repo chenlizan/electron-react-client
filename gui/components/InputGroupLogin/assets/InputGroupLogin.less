@@ -53,21 +53,13 @@
     }
 
     &-Menu {
-      padding: initial;
       background-color: white;
 
-      .rc-menu-item {
+      [class="rc-menu-item"],
+      [class="rc-menu-item rc-menu-item-selected"],
+      [class="rc-menu-item rc-menu-item-active rc-menu-item-selected"] {
         padding: initial;
       }
-
-
-      //[class="rc-menu-item rc-menu-item-active rc-menu-item-selected"] {
-      //  width: 48px;
-      //  height: 48px;
-      //  line-height: 24px;
-      //  background-color: #eaf8fe;
-      //  transform: translateZ(0);
-      //}
 
     }
   }
@@ -116,11 +108,4 @@
 
   }
 
-}
-
-.avatar-size(@size, @font-size) {
-  width: @size;
-  height: @size;
-  line-height: @size;
-  border-radius: 50%;
 }
