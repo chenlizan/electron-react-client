@@ -53,12 +53,51 @@
     }
 
     &-Menu {
+      padding-top: 1px;
       background-color: white;
 
-      [class="rc-menu-item"],
+      [class="rc-menu-item"] {
+        padding: initial;
+
+        & > div {
+          display: inline-block;
+          margin-left: 6px;
+          vertical-align: middle;
+          font-size: 12px;
+
+          & > span {
+            display: block;
+            color: black;
+          }
+        }
+      }
+
       [class="rc-menu-item rc-menu-item-selected"],
       [class="rc-menu-item rc-menu-item-active rc-menu-item-selected"] {
         padding: initial;
+        background-color: #1890ff;
+
+        & > span {
+          margin: 1px;
+          border-radius: 10%;
+          background-color: white;
+        }
+
+        & > div {
+          display: inline-block;
+          margin-left: 6px;
+          vertical-align: middle;
+          font-size: 12px;
+
+          & > span {
+            display: block;
+            color: black;
+
+            & + span {
+              color: white;
+            }
+          }
+        }
       }
 
     }
@@ -107,5 +146,4 @@
     }
 
   }
-
 }

@@ -48,25 +48,25 @@ export default class InputAccount extends React.PureComponent {
                 <MenuItem key="1" onMouseEnter={this.handleOnMouseEnter}>
                     <Avatar size={this.handleSize("1")}
                             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                    <div>
                         {selectedKeys[0] === "1" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span style={{display: 'block'}}>903949</span>
+                        <span>903949</span>
                     </div>
                 </MenuItem>
                 <MenuItem key="2" onMouseEnter={this.handleOnMouseEnter}>
                     <Avatar size={this.handleSize("2")}
                             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                    <div>
                         {selectedKeys[0] === "2" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span style={{display: 'block'}}>903949</span>
+                        <span>903949</span>
                     </div>
                 </MenuItem>
                 <MenuItem key="3" onMouseEnter={this.handleOnMouseEnter}>
                     <Avatar size={this.handleSize("3")}
                             src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div style={{display: 'inline-block', verticalAlign: 'middle'}}>
+                    <div>
                         {selectedKeys[0] === "3" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span style={{display: 'block'}}>903949</span>
+                        <span>903949</span>
                     </div>
                 </MenuItem>
             </Menu>
