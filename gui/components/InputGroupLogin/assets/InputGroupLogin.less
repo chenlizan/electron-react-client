@@ -11,16 +11,15 @@
   &-Account {
     width: 100%;
     height: @InputHeight;
-    border: 1px solid gainsboro;
-    border-radius: 4px 4px 0 0;
-
-    &:hover {
-      border-color: dodgerblue;
-    }
 
     & div {
       height: 100%;
-      border: none;
+      border: 1px solid gainsboro;
+      border-radius: 4px 4px 0 0;
+
+      &:hover {
+        border-color: dodgerblue;
+      }
 
       & input {
         vertical-align: top;
@@ -52,8 +51,22 @@
       }
     }
 
+    &-Down {
+      border-color: dodgerblue !important;
+
+      & svg {
+        color: rgba(0, 0, 0, 0.8);
+        transform: rotate(180deg);
+      }
+    }
+
+    &-Up {
+
+    }
+
     &-Menu {
       padding-top: 1px;
+      border: 1px solid dodgerblue;
       background-color: white;
 
       [class="rc-menu-item"] {
@@ -83,7 +96,7 @@
           background-color: white;
         }
 
-        & > div {
+        & [class="account"] {
           display: inline-block;
           margin-left: 6px;
           vertical-align: middle;
@@ -98,52 +111,74 @@
             }
           }
         }
-      }
 
+        & [class="delete"] {
+          display: inline-block;
+          margin-left: 75px;
+          vertical-align: middle;
+          font-size: 12px;
+
+          & [class="anticon"] {
+            margin: initial;
+            top: initial;
+            vertical-align: middle;
+            padding: 1px;
+
+            & :hover {
+              background-color: rgba(176, 224, 230, 0.6);
+            }
+
+          }
+
+
+        }
+      }
     }
   }
 
   &-Password {
-    display: inline-block;
     width: 100%;
     height: @InputHeight;
-    margin-top: -1px;
-    border: 1px solid gainsboro;
-    border-radius: 0 0 4px 4px;
-    border-top-color: rgba(220, 220, 220, 0);
 
-    &:hover {
-      border-color: dodgerblue;
-    }
-
-    & input {
-      vertical-align: top;
-      width: 85%;
+    & div {
       height: 100%;
-      padding-left: 6px;
-      border: none;
-      border-radius: 0 0 0 4px;
-      outline: none;
-    }
-
-    & i {
-      vertical-align: top;
-      display: inline-block;
-      width: 15%;
-      height: 100%;
-      color: darkgrey;
-      border: none;
-      background-color: white;
-      border-radius: 0 0 4px 0;
-
-      & svg {
-        height: 100%;
-      }
+      margin-top: -1px;
+      border: 1px solid gainsboro;
+      border-radius: 0 0 4px 4px;
+      border-top-color: rgba(220, 220, 220, 0);
 
       &:hover {
-        color: rgb(69, 150, 215);
+        border-color: dodgerblue;
+      }
+
+      & input {
+        vertical-align: top;
+        width: 85%;
+        height: 100%;
+        padding-left: 6px;
+        border: none;
+        border-radius: 0 0 0 4px;
+        outline: none;
+      }
+
+      & i {
+        vertical-align: top;
+        display: inline-block;
+        width: 15%;
+        height: 100%;
+        color: darkgrey;
+        border: none;
+        background-color: white;
+        border-radius: 0 0 4px 0;
+
+        & svg {
+          height: 100%;
+        }
+
+        &:hover {
+          color: rgb(69, 150, 215);
+        }
       }
     }
-
   }
 }

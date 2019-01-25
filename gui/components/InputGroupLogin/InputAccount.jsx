@@ -20,15 +20,19 @@ export default class InputAccount extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            popupVisible: false,
             selectedKeys: ["1"]
         }
     }
-
 
     handleOnMouseEnter = ({key, domEvent}) => {
         this.setState({
             selectedKeys: [key]
         })
+    };
+
+    handleOnPopupVisibleChange = (popupVisible) => {
+        this.setState({popupVisible})
     };
 
     handleSize = (key) => {
@@ -41,51 +45,72 @@ export default class InputAccount extends React.PureComponent {
             return 'small';
     };
 
-    renderMenu = () => {
+    handleOnClick = (key) => {
+        console.log(key)
+    };
+
+    renderMenu = (data) => {
         const {selectedKeys} = this.state;
+        const element = [];
+        for (let i = 0, len = data.length; i < len; i++) {
+            const index = String(i);
+            element.push(
+                <MenuItem key={index} onMouseEnter={this.handleOnMouseEnter}>
+                    <Avatar size={this.handleSize(index)} src={data[i].image}/>
+                    <div className="account">
+                        {selectedKeys[0] === index ? <span>{data[i].name}</span> : null}
+                        <span>{data[i].account}</span>
+                    </div>
+                    <div className="delete">
+                        <IconFont type="electron-close" title="删除账号信息" onClick={this.handleOnClick.bind(null, index)}/>
+                    </div>
+                </MenuItem>
+            );
+        }
         return (
             <Menu className={styles['InputGroupLogin-Account-Menu']} selectedKeys={selectedKeys}>
-                <MenuItem key="1" onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar size={this.handleSize("1")}
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div>
-                        {selectedKeys[0] === "1" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span>903949</span>
-                    </div>
-                </MenuItem>
-                <MenuItem key="2" onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar size={this.handleSize("2")}
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div>
-                        {selectedKeys[0] === "2" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span>903949</span>
-                    </div>
-                </MenuItem>
-                <MenuItem key="3" onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar size={this.handleSize("3")}
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
-                    <div>
-                        {selectedKeys[0] === "3" ? <span style={{display: 'block'}}>陈明亮</span> : null}
-                        <span>903949</span>
-                    </div>
-                </MenuItem>
+                {element}
             </Menu>
         );
-    }
-
+    };
 
     render() {
+        const {popupVisible} = this.state;
+
+        const accountList = [
+            {
+                account: "903949",
+                name: "陈明亮",
+                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            },
+            {
+                account: "903949",
+                name: "陈明亮",
+                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            },
+            {
+                account: "903949",
+                name: "陈明亮",
+                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            },
+
+
+        ];
+
         return (
             <div className={styles['InputGroupLogin-Account']}>
                 <Trigger
                     action={['click']}
-                    popup={this.renderMenu()}
+                    popup={this.renderMenu(accountList)}
                     popupAlign={{
                         points: ['tc', 'bc'],
                     }}
+                    onPopupVisibleChange={this.handleOnPopupVisibleChange}
                     stretch='width'
+                    destroyPopupOnHide
                 >
-                    <div>
+                    <div
+                        className={popupVisible ? styles['InputGroupLogin-Account-Down'] : styles['InputGroupLogin-Account-Up']}>
                         <input/><IconFont type="electron-down"/>
                     </div>
                 </Trigger>
