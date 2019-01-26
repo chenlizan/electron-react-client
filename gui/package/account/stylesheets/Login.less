@@ -4,7 +4,13 @@
   border-radius: 4px;
   box-shadow: 0px 0px 10px #888888;
 
+  &-canvas {
+    position: absolute;
+    z-index: 1;
+  }
+
   &-upper {
+    position: relative;
     height: 183px;
     border-radius: 4px 4px 0 0;
     background-color: #108ee9;
@@ -12,15 +18,17 @@
     -webkit-user-select: none;
 
     &-operate-icon {
+      position: absolute;
       top: 0;
       right: 0;
       text-align: right;
-      -webkit-app-region: no-drag;
+      z-index: 1;
 
       &-close {
         display: inline-block;
         width: 30px;
         height: 30px;
+        -webkit-app-region: no-drag;
 
         &:hover {
           background-color: red;
@@ -41,6 +49,7 @@
         display: inline-block;
         width: 30px;
         height: 30px;
+        -webkit-app-region: no-drag;
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.1);
@@ -60,6 +69,7 @@
         display: inline-block;
         width: 30px;
         height: 30px;
+        -webkit-app-region: no-drag;
 
         &:hover {
           background-color: rgba(255, 255, 255, 0.1);

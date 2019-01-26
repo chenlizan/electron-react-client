@@ -5,6 +5,8 @@ import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import IconFont from '../../../components/IconFont';
 import InputGroupLogin from '../../../components/InputGroupLogin';
 import {login} from "../services";
+
+import drawLine from "./canv";
 import styles from '../stylesheets/Login.less';
 
 const InputGroup = Input.Group;
@@ -18,6 +20,11 @@ export default class Login extends React.Component {
             username: ''
         }
     }
+
+    componentDidMount() {
+        drawLine();
+    }
+
 
     componentWillReceiveProps(nextProps) {
         const {electron} = nextProps;
@@ -75,6 +82,7 @@ export default class Login extends React.Component {
         const {isShowErrorTip} = this.state;
         return (
             <div className={styles['login']}>
+                <canvas id="canvas" className={styles['login-canvas']} width={430} height={183}></canvas>
                 <div className={styles['login-upper']}>
                     <div className={styles['login-upper-operate-icon']}>
                         <span className={styles['login-upper-operate-icon-setup']}>

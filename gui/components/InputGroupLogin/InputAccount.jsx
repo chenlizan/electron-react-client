@@ -20,6 +20,7 @@ export default class InputAccount extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            inputValue: '',
             popupVisible: false,
             selectedKeys: ["1"]
         }
@@ -31,11 +32,7 @@ export default class InputAccount extends React.PureComponent {
         })
     };
 
-    handleOnPopupVisibleChange = (popupVisible) => {
-        this.setState({popupVisible})
-    };
-
-    handleSize = (key) => {
+    handleAvatarSize = (key) => {
         const {selectedKeys} = this.state;
         if (key === selectedKeys[0])
             return 'large';
@@ -45,73 +42,78 @@ export default class InputAccount extends React.PureComponent {
             return 'small';
     };
 
-    handleOnClick = (key) => {
-        console.log(key)
+    handleOpenClick = () => {
+        const {popupVisible} = this.state;
+        this.setState({
+            popupVisible: !popupVisible
+        });
     };
 
-    renderMenu = (data) => {
+    handleOnPopupVisibleChange = (popupVisible) => {
+        this.setState({
+            popupVisible: popupVisible
+        });
+    };
+
+    handleOnClick = ({key}) => {
+        const {data} = this.props;
+        this.setState({
+            inputValue: data[key].account,
+            popupVisible: false
+        });
+    };
+
+    handleDeleteClick = (index) => {
+        console.log(index);
+    };
+
+    renderMenu() {
+        const {data} = this.props;
         const {selectedKeys} = this.state;
         const element = [];
         for (let i = 0, len = data.length; i < len; i++) {
             const index = String(i);
             element.push(
                 <MenuItem key={index} onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar size={this.handleSize(index)} src={data[i].image}/>
+                    <Avatar size={this.handleAvatarSize(index)} src={data[i].image}/>
                     <div className="account">
                         {selectedKeys[0] === index ? <span>{data[i].name}</span> : null}
                         <span>{data[i].account}</span>
                     </div>
                     <div className="delete">
-                        <IconFont type="electron-close" title="删除账号信息" onClick={this.handleOnClick.bind(null, index)}/>
+                        <IconFont type="electron-close" title="删除账号信息"
+                                  onClick={this.handleDeleteClick.bind(null, index)}/>
                     </div>
                 </MenuItem>
             );
         }
         return (
-            <Menu className={styles['InputGroupLogin-Account-Menu']} selectedKeys={selectedKeys}>
+            <Menu className={styles['InputGroupLogin-Account-Menu']} selectable={false} selectedKeys={selectedKeys}
+                  onClick={this.handleOnClick}>
                 {element}
             </Menu>
         );
     };
 
     render() {
-        const {popupVisible} = this.state;
-
-        const accountList = [
-            {
-                account: "903949",
-                name: "陈明亮",
-                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            },
-            {
-                account: "903949",
-                name: "陈明亮",
-                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            },
-            {
-                account: "903949",
-                name: "陈明亮",
-                image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            },
-
-
-        ];
-
+        const {inputValue, popupVisible} = this.state;
         return (
             <div className={styles['InputGroupLogin-Account']}>
                 <Trigger
                     action={['click']}
-                    popup={this.renderMenu(accountList)}
+                    popup={this.renderMenu()}
                     popupAlign={{
                         points: ['tc', 'bc'],
                     }}
+                    popupVisible={popupVisible}
                     onPopupVisibleChange={this.handleOnPopupVisibleChange}
                     stretch='width'
                     destroyPopupOnHide
                 >
                     <div
                         className={popupVisible ? styles['InputGroupLogin-Account-Down'] : styles['InputGroupLogin-Account-Up']}>
-                        <input/><IconFont type="electron-down"/>
+                        <input defaultValue={inputValue}/><IconFont type="electron-down"
+                                                                    onClick={this.handleOpenClick}/>
                     </div>
                 </Trigger>
             </div>

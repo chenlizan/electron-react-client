@@ -28,6 +28,7 @@
         padding-left: 6px;
         border: none;
         border-radius: 4px 0 0 0;
+        color: black;
         outline: none;
       }
 
@@ -66,6 +67,7 @@
 
     &-Menu {
       padding-top: 1px;
+      height: auto;
       border: 1px solid dodgerblue;
       background-color: white;
 
@@ -97,13 +99,19 @@
         }
 
         & [class="account"] {
+          position: absolute;
           display: inline-block;
-          margin-left: 6px;
           vertical-align: middle;
+          margin-top: 4px;
+          margin-left: 6px;
           font-size: 12px;
 
           & > span {
             display: block;
+            width: 110px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             color: black;
 
             & + span {
@@ -113,9 +121,11 @@
         }
 
         & [class="delete"] {
+          position: absolute;
           display: inline-block;
-          margin-left: 75px;
           vertical-align: middle;
+          top: 10px;
+          left: 170px;
           font-size: 12px;
 
           & [class="anticon"] {
@@ -125,12 +135,9 @@
             padding: 1px;
 
             & :hover {
-              background-color: rgba(176, 224, 230, 0.6);
+              background-color: rgba(176, 224, 230, 0.5);
             }
-
           }
-
-
         }
       }
     }
