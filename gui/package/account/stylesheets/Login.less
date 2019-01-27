@@ -91,16 +91,38 @@
   &-lower {
     height: 148px;
     border-radius: 0 0 4px 4px;
-    background-color: gainsboro;
+    background-color: #f6fdfd;
     -webkit-user-select: none;
 
     &-input-group-login {
-      margin-left: 32px;
+      display: flex;
+      padding-top: 12px;
+
+      div:nth-child(1) {
+        flex: 0 137px;
+      }
+
+      div:nth-child(3) {
+        font-size: 12px;
+
+        & > a {
+          display: block;
+          margin-left: 12px;
+        }
+
+        a:nth-child(1) {
+          margin-top: 4px;
+        }
+
+        a:nth-child(2) {
+          margin-top: 14px;
+        }
+      }
     }
 
     &-button {
-      margin-top: 28px;
-      margin-left: 32px;
+      margin-top: 10px;
+      margin-left: 138px;
       width: 194px;
       height: 31px;
       font-size: 12px;

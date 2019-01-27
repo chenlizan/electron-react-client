@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Input} from 'antd';
+import {Avatar, Button, Input} from 'antd';
 import {ipcMsgRenderer, windowID} from '../../../utils/ipcMsg';
 import IconFont from '../../../components/IconFont';
 import InputGroupLogin from '../../../components/InputGroupLogin';
@@ -11,7 +11,55 @@ import styles from '../stylesheets/Login.less';
 
 const InputGroup = Input.Group;
 
+const accountList = [
+    {
+        account: "903949",
+        name: "陈明亮",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "444067326",
+        name: "本拉登",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "616028858",
+        name: "一直很贵，除了今天少时诵诗书所所所所所所所",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "124458019",
+        name: "熊高",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "124458019",
+        name: "熊高",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "124458019",
+        name: "熊高",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "124458019",
+        name: "熊高",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+    {
+        account: "124458019",
+        name: "熊高",
+        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    },
+];
+
 export default class Login extends React.Component {
+
+    static propTypes = {
+        electron: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -38,14 +86,6 @@ export default class Login extends React.Component {
         }
     }
 
-    handleSubmit = (e) => {
-        let loginValue = {
-            password: this.state.password,
-            username: this.state.username
-        };
-        login(loginValue);
-    };
-
     minimize = () => {
         const {minimize} = this.props;
         minimize ? minimize : ipcMsgRenderer.minWindow(windowID.account);
@@ -56,27 +96,14 @@ export default class Login extends React.Component {
         close ? close : ipcMsgRenderer.closeWindow(windowID.account);
     };
 
-    getInput = (e) => {
-        const {id, value} = e.currentTarget;
-        switch (id) {
-            case 'password':
-                this.state.password = value;
-                break;
-            case 'username':
-                this.state.username = value;
-                break;
+    handleOnPopupVisibleChange(popupVisible) {
+        if (popupVisible) {
+            const height = (accountList.length - 3) * 25 + 360;
+            ipcMsgRenderer.resizeWindow(windowID.account.concat([450, height]));
+        } else {
+            ipcMsgRenderer.resizeWindow(windowID.account.concat([450, 351]));
         }
-    };
-
-    toRegistry = () => {
-        console.log('to registry');
-        this.props.history.push('/registry');
-    };
-
-    forgetPsw = () => {
-        console.log('forget pwd');
-        this.props.history.push('resetPassword');
-    };
+    }
 
     render() {
         const {isShowErrorTip} = this.state;
@@ -97,20 +124,18 @@ export default class Login extends React.Component {
                     </div>
                 </div>
                 <div className={styles['login-lower']}>
-                    <div style={{textAlign: 'center', paddingTop: 14}}>
-                        <div className={styles['login-lower-input-group-login']}>
-                            <InputGroupLogin/>
-                        </div>
+                    <div className={styles['login-lower-input-group-login']}>
                         <div>
-                            <Button className={styles['login-lower-button']} type="primary">登&nbsp;&nbsp;录</Button>
+                        </div>
+                        <InputGroupLogin onPopupVisibleChange={this.handleOnPopupVisibleChange} data={accountList}/>
+                        <div>
+                            <a>注册账号</a>
+                            <a>找回密码</a>
                         </div>
                     </div>
+                    <Button className={styles['login-lower-button']} type="primary">登&nbsp;&nbsp;录</Button>
                 </div>
             </div>
         );
     }
 }
-
-Login.propTypes = {
-    electron: PropTypes.object
-};

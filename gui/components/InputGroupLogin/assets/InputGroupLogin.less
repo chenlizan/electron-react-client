@@ -8,6 +8,24 @@
   width: @InputWidth;
   border: 0;
 
+  &-checkbox {
+    margin-top: 2px;
+
+    label:nth-child(1) {
+      margin-right: 32px;
+    }
+
+    [class="ant-checkbox-wrapper"],
+    [class="ant-checkbox"] {
+      font-size: 12px;
+
+      [class="ant-checkbox-inner"] {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+
   &-Account {
     width: 100%;
     height: @InputHeight;

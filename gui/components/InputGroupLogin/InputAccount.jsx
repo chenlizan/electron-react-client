@@ -50,8 +50,11 @@ export default class InputAccount extends React.PureComponent {
     };
 
     handleOnPopupVisibleChange = (popupVisible) => {
+        const {onPopupVisibleChange} = this.props;
         this.setState({
             popupVisible: popupVisible
+        }, () => {
+            onPopupVisibleChange(popupVisible);
         });
     };
 

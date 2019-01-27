@@ -32,18 +32,24 @@ export const ipcMsgMain = () => {
         }
     });
 
-    ipcMain.on('minWindow', (event, args) => {
-        const index = _.findIndex(windowHandleArr, {name: args[0]});
-        if (index === -1) return;
-        windowHandleArr[index].handle.minimize();
-    });
-
     ipcMain.on('closeWindow', (event, args) => {
         const index = _.findIndex(windowHandleArr, {name: args[0]});
         if (index === -1) return;
         if (args[0] === 'home' || (args[0] === 'account' && windowHandleArr.length === 1)) return app.exit();
         windowHandleArr[index].handle.close();
         _.pullAt(windowHandleArr, index);
+    });
+
+    ipcMain.on('minWindow', (event, args) => {
+        const index = _.findIndex(windowHandleArr, {name: args[0]});
+        if (index === -1) return;
+        windowHandleArr[index].handle.minimize();
+    });
+
+    ipcMain.on('resizeWindow', (event, args) => {
+        const index = _.findIndex(windowHandleArr, {name: args[0]});
+        if (index === -1) return;
+        windowHandleArr[index].handle.setContentSize(args[2], args[3]);
     });
 
 };

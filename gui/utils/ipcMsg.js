@@ -12,10 +12,14 @@ export const ipcMsgRenderer = {
 
     closeWindow: (args) => {
         ipcRenderer.send('closeWindow', args);
+    },
+
+    resizeWindow(args) {
+        ipcRenderer.send('resizeWindow', args);
     }
 };
 
 export const windowID = {
     account: ['account', '/account.html#/login'],
     main: ['main', '/main.html#/mainFrame']
-}
+};
