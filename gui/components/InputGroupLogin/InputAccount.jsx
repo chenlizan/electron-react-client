@@ -21,6 +21,7 @@ export default class InputAccount extends React.PureComponent {
         super(props);
         this.state = {
             inputValue: '',
+            value: undefined,
             popupVisible: false,
             selectedKeys: ["1"]
         }
@@ -98,8 +99,15 @@ export default class InputAccount extends React.PureComponent {
         );
     };
 
+    componentDidMount() {
+        const {data} = this.props;
+        this.setState({
+            inputValue: data[0].account
+        })
+    }
+
     render() {
-        const {inputValue, popupVisible} = this.state;
+        const {inputValue, value, popupVisible} = this.state;
         return (
             <div className={styles['InputGroupLogin-Account']}>
                 <Trigger
@@ -114,7 +122,7 @@ export default class InputAccount extends React.PureComponent {
                     destroyPopupOnHide
                 >
                     <div
-                        className={popupVisible ? styles['InputGroupLogin-Account-Down'] : styles['InputGroupLogin-Account-Up']}>
+                        className={styles[popupVisible ? 'InputGroupLogin-Account-Down' : 'InputGroupLogin-Account-Up']}>
                         <input defaultValue={inputValue}/><IconFont type="electron-down"
                                                                     onClick={this.handleOpenClick}/>
                     </div>

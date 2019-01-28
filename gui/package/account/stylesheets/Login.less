@@ -1,8 +1,10 @@
 .login {
-  margin: 10px auto;
+  position: absolute;
+  margin: 10px;
   width: 430px;
   border-radius: 4px;
   box-shadow: 0px 0px 10px #888888;
+  backface-visibility: hidden;
 
   &-canvas {
     position: absolute;
@@ -129,5 +131,49 @@
       font-weight: normal;
     }
   }
+
 }
 
+.setup {
+  position: absolute;
+  margin: 10px;
+  width: 430px;
+  height: 331px;
+  background-color: #f6fdfd;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px #888888;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+  & > a {
+    display: block;
+    font-size: 18px;
+    line-height: 280px;
+    text-align: center;
+  }
+}
+
+.window {
+  perspective: 1000px;
+
+  & > div {
+    position: relative;
+    width: 450px;
+    transform-style: preserve-3d;
+    transition: transform 1.0s cubic-bezier(0, .75, .25, 1);
+  }
+
+}
+
+.window-rotate {
+  composes: window;
+
+  & > div {
+    transform: rotateY(-180deg);
+
+    div:nth-child(1) {
+      display: none;
+    }
+  }
+
+}
