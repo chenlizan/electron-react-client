@@ -123,7 +123,7 @@ export default class InputAccount extends React.PureComponent {
                 >
                     <div
                         className={styles[popupVisible ? 'InputGroupLogin-Account-Down' : 'InputGroupLogin-Account-Up']}>
-                        <input defaultValue={inputValue}/><IconFont type="electron-down"
+                        <input defaultValue={inputValue} placeholder="PP号码/手机/邮箱"/><IconFont type="electron-down"
                                                                     onClick={this.handleOpenClick}/>
                     </div>
                 </Trigger>

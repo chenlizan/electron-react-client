@@ -111,6 +111,7 @@ export default class Login extends React.Component {
                         <div className={styles['login-lower']}>
                             <div className={styles['login-lower-input-group-login']}>
                                 <div>
+                                    <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
                                 </div>
                                 <InputGroupLogin onPopupVisibleChange={this.handleOnPopupVisibleChange}
                                                  data={accountList}/>

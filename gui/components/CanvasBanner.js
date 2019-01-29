@@ -83,5 +83,5 @@ export default () => {
         var time = new Date().getTime();
         for (var e in elements)
             elements[e].draw(ctx, time);
-    }, 5);
+    }, 100);
 }

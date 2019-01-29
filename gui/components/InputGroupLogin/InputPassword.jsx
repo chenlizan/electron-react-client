@@ -9,7 +9,7 @@ export default class InputPassword extends React.PureComponent {
         return (
             <div className={styles['InputGroupLogin-Password']}>
                 <div>
-                    <input/><IconFont type="electron-keyboard"/>
+                    <input placeholder="密码" type="password"/><IconFont type="electron-keyboard"/>
                 </div>
             </div>
         )

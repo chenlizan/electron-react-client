@@ -102,6 +102,13 @@
 
       div:nth-child(1) {
         flex: 0 137px;
+
+        & > img {
+          margin-top: 4px;
+          margin-left: 50px;
+          max-width: 76px;
+          max-height: 76px;
+        }
       }
 
       div:nth-child(3) {
@@ -154,13 +161,13 @@
 }
 
 .window {
-  perspective: 1000px;
+  perspective: 3000px;
 
   & > div {
     position: relative;
     width: 450px;
     transform-style: preserve-3d;
-    transition: transform 1.0s cubic-bezier(0, .75, .25, 1);
+    transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
   }
 
 }
