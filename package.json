@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config",
     "electron": "cross-env NODE_ENV=development electron.cmd --inspect .",
     "postinstall": "npm install cross-env && cross-env npm_config_target=3.1.1 npm_config_arch=x64 npm_config_target_arch=x64 npm_config_disturl=https://atom.io/download/electron npm_config_runtime=electron npm_config_build_from_source=true npm install sqlite3",
-    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist chat-client --icon=app/resources/appIcon.ico --platform=win32 --electronVersion=3.1.1 --asar --overwrite && rimraf -rf dist"
+    "release": "webpack --config webpack.prod.config && cd dist && npm run inst && cd ../ && electron-packager dist PP --icon=app/resources/appIcon.ico --platform=win32 --electronVersion=3.1.1 --asar --overwrite && rimraf -rf dist"
   },
   "repository": {
     "type": "git",

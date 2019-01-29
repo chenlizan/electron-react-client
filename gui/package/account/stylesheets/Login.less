@@ -1,5 +1,6 @@
 .login {
   position: absolute;
+  z-index: 1;
   margin: 10px;
   width: 430px;
   border-radius: 4px;
@@ -152,7 +153,7 @@
   backface-visibility: hidden;
   transform: rotateY(180deg);
 
-  & > a {
+  & > span {
     display: block;
     font-size: 18px;
     line-height: 280px;
@@ -169,7 +170,6 @@
     transform-style: preserve-3d;
     transition: transform 1.5s cubic-bezier(0, .75, .25, 1);
   }
-
 }
 
 .window-rotate {
@@ -177,10 +177,5 @@
 
   & > div {
     transform: rotateY(-180deg);
-
-    div:nth-child(1) {
-      display: none;
-    }
   }
-
 }

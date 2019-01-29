@@ -124,10 +124,10 @@ export default class Login extends React.Component {
                         </div>
                     </div>
                     <div className={styles['setup']}>
+                        <span>https://github.com/chenlizan/electron-react-client</span>
                         <Button onClick={this.setup.bind(null, false)}>
                             <Icon type="left"/>Go back
                         </Button>
-                        <a>https://github.com/chenlizan/electron-react-client</a>
                     </div>
                 </div>
             </div>
