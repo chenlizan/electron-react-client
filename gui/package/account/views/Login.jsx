@@ -18,7 +18,7 @@ const accountList = [
     {
         account: "444067326",
         name: "本拉登",
-        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        image: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
     },
     {
         account: "616028858",

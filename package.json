@@ -43,6 +43,7 @@
     "babel-preset-stage-0": "^6.0.0",
     "babel-register": "^6.0.0",
     "bluebird": "^3.5.3",
+    "classnames": "^2.2.6",
     "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",

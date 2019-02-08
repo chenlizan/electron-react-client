@@ -1,11 +1,22 @@
-@PrefixCls: InputGroupLogin;
-@InputHeight: 32px;
-@InputWidth: 194px;
+@prefix-cls: inputgrouplogin;
+@input-height: 32px;
+@input-width: 194px;
+@avatar-size-base: 32px;
+@avatar-size-lg: 40px;
+@avatar-size-sm: 24px;
 
-.@{PrefixCls} {
+.avatar-size(@size) {
+  margin: 1px;
+  width: @size;
+  height: @size;
+  background-color: white;
+  border-radius: 10%;
+}
+
+.@{prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
-  width: @InputWidth;
+  width: @input-width;
   border: 0;
 
   &-checkbox {
@@ -27,14 +38,13 @@
           left: 2.571429px;
           top: 0.142857px;
         }
-
       }
     }
   }
 
-  &-Account {
+  &-account {
     width: 100%;
-    height: @InputHeight;
+    height: @input-height;
 
     & div {
       height: 100%;
@@ -76,7 +86,7 @@
       }
     }
 
-    &-Down {
+    &-down {
       border-color: dodgerblue !important;
 
       & svg {
@@ -85,91 +95,90 @@
       }
     }
 
-    &-Up {
+    &-up {
 
     }
 
-    &-Menu {
+    &-menu {
       padding-top: 1px;
       height: auto;
       border: 1px solid dodgerblue;
       background-color: white;
 
-      [class="rc-menu-item"] {
-        padding: initial;
+      &-avatar-lg {
+        .avatar-size(@avatar-size-lg)
+      }
 
-        & > div {
-          display: inline-block;
-          margin-left: 6px;
-          vertical-align: middle;
-          font-size: 12px;
+      &-avatar-base {
+        .avatar-size(@avatar-size-base)
+      }
+
+      &-avatar-sm {
+        .avatar-size(@avatar-size-sm)
+      }
+
+      &-info {
+        position: absolute;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 4px;
+        margin-left: 6px;
+        font-size: 12px;
+
+        & > span {
+          display: block;
+          width: 110px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: black;
 
           & > span {
             display: block;
             color: black;
           }
+
+          & + span {
+            color: white;
+          }
         }
+      }
+
+      &-delete {
+        position: absolute;
+        display: inline-block;
+        vertical-align: middle;
+        top: 10px;
+        left: 170px;
+        font-size: 12px;
+
+        & [class="anticon"] {
+          margin: initial;
+          top: initial;
+          vertical-align: middle;
+          padding: 1px;
+
+          & :hover {
+            background-color: rgba(176, 224, 230, 0.5);
+          }
+        }
+      }
+
+      [class="rc-menu-item"] {
+        padding: initial;
       }
 
       [class="rc-menu-item rc-menu-item-selected"],
       [class="rc-menu-item rc-menu-item-active rc-menu-item-selected"] {
         padding: initial;
         background-color: #1890ff;
-
-        & > span {
-          margin: 1px;
-          border-radius: 10%;
-          background-color: white;
-        }
-
-        & [class="account"] {
-          position: absolute;
-          display: inline-block;
-          vertical-align: middle;
-          margin-top: 4px;
-          margin-left: 6px;
-          font-size: 12px;
-
-          & > span {
-            display: block;
-            width: 110px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: black;
-
-            & + span {
-              color: white;
-            }
-          }
-        }
-
-        & [class="delete"] {
-          position: absolute;
-          display: inline-block;
-          vertical-align: middle;
-          top: 10px;
-          left: 170px;
-          font-size: 12px;
-
-          & [class="anticon"] {
-            margin: initial;
-            top: initial;
-            vertical-align: middle;
-            padding: 1px;
-
-            & :hover {
-              background-color: rgba(176, 224, 230, 0.5);
-            }
-          }
-        }
       }
     }
   }
 
-  &-Password {
+  &-password {
     width: 100%;
-    height: @InputHeight;
+    height: @input-height;
 
     & div {
       height: 100%;

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Avatar} from 'antd';
+import classNames from 'classnames';
 import Menu, {MenuItem} from "rc-menu";
 import Trigger from 'rc-trigger';
 import IconFont from '../IconFont';
-import styles from './assets/InputGroupLogin.less';
+
 
 function preventDefault(e) {
     e.preventDefault();
@@ -12,6 +12,31 @@ function preventDefault(e) {
 
 function getPopupContainer(trigger) {
     return trigger.parentNode;
+}
+
+class Avatar extends React.PureComponent {
+
+    static defaultProps = {
+        prefixCls: 'avatar'
+    };
+
+    static propTypes = {
+        prefixCls: PropTypes.string
+    };
+
+    render() {
+        const {prefixCls, size, src} = this.props;
+
+        const sizeCls = classNames({
+            [`${prefixCls}-lg`]: size === 'large',
+            [`${prefixCls}-base`]: size === 'base',
+            [`${prefixCls}-sm`]: size === 'small',
+        });
+
+        return (
+            <img className={classNames(sizeCls)} src={src}/>
+        )
+    }
 }
 
 
@@ -38,7 +63,7 @@ export default class InputAccount extends React.PureComponent {
         if (key === selectedKeys[0])
             return 'large';
         else if (key == (Number(selectedKeys[0]) + 1) || key == (Number(selectedKeys[0]) - 1))
-            return 'default';
+            return 'base';
         else
             return 'small';
     };
@@ -72,32 +97,31 @@ export default class InputAccount extends React.PureComponent {
     };
 
     renderMenu() {
-        const {data} = this.props;
+        const {data, prefixCls} = this.props;
         const {selectedKeys} = this.state;
         const element = [];
         for (let i = 0, len = data.length; i < len; i++) {
             const index = String(i);
             element.push(
                 <MenuItem key={index} onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar size={this.handleAvatarSize(index)} src={data[i].image}/>
-                    <div className="account">
+                    <Avatar prefixCls={`${prefixCls}-account-menu-avatar`} size={this.handleAvatarSize(index)} src={data[i].image}/>
+                    <div className={classNames(`${prefixCls}-account-menu-info`)}>
                         {selectedKeys[0] === index ? <span>{data[i].name}</span> : null}
                         <span>{data[i].account}</span>
                     </div>
-                    <div className="delete">
-                        <IconFont type="electron-close" title="删除账号信息"
-                                  onClick={this.handleDeleteClick.bind(null, index)}/>
+                    <div className={classNames(`${prefixCls}-account-menu-delete`)}>
+                        <IconFont type="electron-close" title="删除账号信息" onClick={this.handleDeleteClick.bind(null, index)}/>
                     </div>
                 </MenuItem>
             );
         }
         return (
-            <Menu className={styles['InputGroupLogin-Account-Menu']} selectable={false} selectedKeys={selectedKeys}
+            <Menu className={classNames(`${prefixCls}-account-menu`)} selectable={false} selectedKeys={selectedKeys}
                   onClick={this.handleOnClick}>
                 {element}
             </Menu>
         );
-    };
+    }
 
     componentDidMount() {
         const {data} = this.props;
@@ -107,9 +131,10 @@ export default class InputAccount extends React.PureComponent {
     }
 
     render() {
+        const {prefixCls} = this.props;
         const {inputValue, value, popupVisible} = this.state;
         return (
-            <div className={styles['InputGroupLogin-Account']}>
+            <div className={classNames(`${prefixCls}-account`)}>
                 <Trigger
                     action={['click']}
                     popup={this.renderMenu()}
@@ -121,10 +146,9 @@ export default class InputAccount extends React.PureComponent {
                     stretch='width'
                     destroyPopupOnHide
                 >
-                    <div
-                        className={styles[popupVisible ? 'InputGroupLogin-Account-Down' : 'InputGroupLogin-Account-Up']}>
-                        <input defaultValue={inputValue} placeholder="PP号码/手机/邮箱"/><IconFont type="electron-down"
-                                                                    onClick={this.handleOpenClick}/>
+                    <div className={classNames(`${prefixCls}-account-${popupVisible ? 'down' : 'up'}`)}>
+                        <input defaultValue={inputValue} placeholder="PP号码/手机/邮箱"/>
+                        <IconFont type="electron-down" onClick={this.handleOpenClick}/>
                     </div>
                 </Trigger>
             </div>
