@@ -13,22 +13,22 @@ const accountList = [
     {
         account: "903949",
         name: "陈明亮",
-        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        image: "http://pic1.win4000.com/pic/2/5c/3b41f7bb5c.jpg"
     },
     {
         account: "444067326",
         name: "本拉登",
-        image: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        image: "http://pic1.win4000.com/pic/2/5c/7fe6fb0809.jpg"
     },
     {
         account: "616028858",
         name: "一直很贵，除了今天",
-        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        image: "http://pic1.win4000.com/pic/6/c2/4f2c91fee0.jpg"
     },
     {
         account: "124458019",
         name: "熊高",
-        image: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        image: "http://pic1.win4000.com/pic/6/c2/269225b7eb.jpg"
     },
 ];
 
@@ -44,6 +44,7 @@ export default class Login extends React.Component {
             isShowErrorTip: false,
             password: '',
             username: '',
+            image: accountList[0].image,
             isSetup: false
         }
     }
@@ -80,15 +81,21 @@ export default class Login extends React.Component {
 
     handleOnPopupVisibleChange(popupVisible) {
         if (popupVisible) {
-            const height = (accountList.length - 3) * 25 + 360;
+            const height = (accountList.length - 2) * 25 + 360;
             ipcMsgRenderer.resizeWindow(windowID.account.concat([450, height]));
         } else {
             ipcMsgRenderer.resizeWindow(windowID.account.concat([450, 351]));
         }
     }
 
+    handleOnSelect = (key) => {
+        this.setState({
+            image: accountList[key].image
+        });
+    }
+
     render() {
-        const {isSetup, isShowErrorTip} = this.state;
+        const {image, isSetup, isShowErrorTip} = this.state;
         return (
             <div className={styles[isSetup ? 'window-rotate' : 'window']}>
                 <div>
@@ -111,10 +118,12 @@ export default class Login extends React.Component {
                         <div className={styles['login-lower']}>
                             <div className={styles['login-lower-input-group-login']}>
                                 <div>
-                                    <img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+                                    <img src={image}/>
                                 </div>
-                                <InputGroupLogin onPopupVisibleChange={this.handleOnPopupVisibleChange}
-                                                 data={accountList}/>
+                                <InputGroupLogin data={accountList}
+                                                 onPopupVisibleChange={this.handleOnPopupVisibleChange}
+                                                 onSelect={this.handleOnSelect}
+                                />
                                 <div>
                                     <a>注册账号</a>
                                     <a>找回密码</a>

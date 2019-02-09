@@ -10,10 +10,6 @@ function preventDefault(e) {
     e.preventDefault();
 }
 
-function getPopupContainer(trigger) {
-    return trigger.parentNode;
-}
-
 class Avatar extends React.PureComponent {
 
     static defaultProps = {
@@ -85,10 +81,12 @@ export default class InputAccount extends React.PureComponent {
     };
 
     handleOnClick = ({key}) => {
-        const {data} = this.props;
+        const {data, onSelect} = this.props;
         this.setState({
             inputValue: data[key].account,
             popupVisible: false
+        }, () => {
+            onSelect(key);
         });
     };
 
@@ -104,19 +102,22 @@ export default class InputAccount extends React.PureComponent {
             const index = String(i);
             element.push(
                 <MenuItem key={index} onMouseEnter={this.handleOnMouseEnter}>
-                    <Avatar prefixCls={`${prefixCls}-account-menu-avatar`} size={this.handleAvatarSize(index)} src={data[i].image}/>
+                    <Avatar prefixCls={`${prefixCls}-account-menu-avatar`} size={this.handleAvatarSize(index)}
+                            src={data[i].image}/>
                     <div className={classNames(`${prefixCls}-account-menu-info`)}>
                         {selectedKeys[0] === index ? <span>{data[i].name}</span> : null}
                         <span>{data[i].account}</span>
                     </div>
                     <div className={classNames(`${prefixCls}-account-menu-delete`)}>
-                        <IconFont type="electron-close" title="删除账号信息" onClick={this.handleDeleteClick.bind(null, index)}/>
+                        <IconFont type="electron-close" title="删除账号信息"
+                                  onClick={this.handleDeleteClick.bind(null, index)}/>
                     </div>
                 </MenuItem>
             );
         }
         return (
-            <Menu className={classNames(`${prefixCls}-account-menu`)} selectable={false} selectedKeys={selectedKeys}
+            <Menu className={classNames(`${prefixCls}-account-menu`)}
+                  selectable={false} selectedKeys={selectedKeys}
                   onClick={this.handleOnClick}>
                 {element}
             </Menu>

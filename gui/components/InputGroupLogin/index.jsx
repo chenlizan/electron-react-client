@@ -10,13 +10,14 @@ export default class Index extends React.Component {
 
     static defaultProps = {
         prefixCls: 'inputgrouplogin',
-        onPopupVisibleChange() {
-        }
+        onPopupVisibleChange() {},
+        onSelect() {}
     };
 
     static propTypes = {
         prefixCls: PropTypes.string,
-        onPopupVisibleChange: PropTypes.func
+        onPopupVisibleChange: PropTypes.func,
+        onSelect: PropTypes.func
     };
 
     render() {
